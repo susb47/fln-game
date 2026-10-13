@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../audio/audio_manager.dart';
 import '../bn.dart';
 import '../data/content.dart';
 import '../game_scope.dart';
 import '../logic/progression.dart';
+import '../widgets/anim.dart';
+import '../widgets/celebration.dart';
 import '../widgets/sound_widgets.dart';
-import '../widgets/visuals.dart';
 import 'play_screen.dart';
 
 /// Stars, new achievements and what to play next.
@@ -29,7 +31,15 @@ class _ResultScreenState extends State<ResultScreen> {
   }
 
   @override
-  Widget build(BuildContext context) => _ResultView(level: widget.level, result: widget.result);
+  Widget build(BuildContext context) => Stack(
+    children: [
+      _ResultView(level: widget.level, result: widget.result),
+      if (widget.result.stars > 0)
+        const Positioned.fill(
+          child: ConfettiBurst(pieces: 70, duration: Duration(milliseconds: 2200)),
+        ),
+    ],
+  );
 }
 
 class _ResultView extends StatelessWidget {
@@ -57,7 +67,7 @@ class _ResultView extends StatelessWidget {
               children: [
                 const CaptionBubble(),
                 const SizedBox(height: 16),
-                StarsRow(r.stars, size: 72, emptyColor: Colors.black26),
+                _StarsIn(r.stars),
                 const SizedBox(height: 12),
                 Text(
                   r.passed ? 'ধাপ শেষ! 🎉' : 'প্রায় হয়ে গেছে!',
@@ -159,4 +169,32 @@ class _BigButton extends StatelessWidget {
       ),
     ),
   );
+}
+
+/// The level's stars land one at a time, each with a twinkle.
+class _StarsIn extends StatelessWidget {
+  final int stars;
+  const _StarsIn(this.stars);
+
+  @override
+  Widget build(BuildContext context) {
+    final audio = GameScope.of(context).audio;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (var i = 0; i < 3; i++)
+          PopIn(
+            delay: Duration(milliseconds: 700 + 400 * i),
+            duration: const Duration(milliseconds: 800),
+            from: const Offset(0, -1.5),
+            onShow: i < stars ? () => audio.sfx(Sfx.star) : null,
+            child: Icon(
+              i < stars ? Icons.star_rounded : Icons.star_outline_rounded,
+              size: 72,
+              color: i < stars ? Colors.amber : Colors.black26,
+            ),
+          ),
+      ],
+    );
+  }
 }

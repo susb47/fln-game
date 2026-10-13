@@ -67,6 +67,9 @@ flutter:
     - assets/brand/
     - assets/sfx/
     - assets/voice/
+    - assets/voice/tuki/
+    - assets/voice/bindu/
+    - assets/voice/piku/
 
   # Bundled so Bangla renders the same on every phone, even offline.
   # Licence: assets/fonts/OFL.txt

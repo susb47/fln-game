@@ -1,4 +1,4 @@
-# সংখ্যার দ্বীপ (Number Islands), v0.4
+# সংখ্যার দ্বীপ (Number Islands), v0.5
 
 Docs: [developer guide](docs/DEVELOPER_GUIDE.md) · [voices and sound](docs/VOICES.md) · [adding levels](docs/LEVELS.md) · [dashboard plan](docs/DASHBOARDS.md)
 
@@ -80,3 +80,12 @@ If you still see a black screen anywhere, note which screen and whether it was C
 - Uses the phone's Bangla text-to-speech now; drop recorded clips into `assets/voice/` later. Sound effects, mute, captions and volume in the speaker menu.
 - Edit lines in `assets/config/dialogue.json`, characters in `assets/config/characters.json`. Details: [docs/VOICES.md](docs/VOICES.md).
 - New packages: `flutter_tts`, `audioplayers`. Run `flutter pub get` after updating.
+
+## v0.4.1
+- Voice fix: picks Google's speech engine on Android and a Bangla voice explicitly; shows a fix-it strip and steps when no Bangla voice exists; "শুনে দেখো" test button in the speaker menu.
+- Celebration after every right answer (character card + confetti), confetti when a level is passed.
+
+## v0.5
+- Every question animates in: the prompt drops in, objects pop in one by one with a soft pop, taken-away objects get crossed out, number patterns drop in tile by tile with a pulsing "?", and the answers rise up last. Wrong answers shake; right answers hop. Result stars land one at a time.
+- New sound effects, all made in `tools/make_sfx.py`: tap, pop, whoosh, hello, correct, wrong, star, level up, try again.
+- Voice pack: recorded or AI-made clips replace text-to-speech, stitched from sentences, words and numbers. `docs/voice_script.csv` lists all 950 clips to make; `tools/voice_pack.py` links them in or makes them with Google Cloud. Details: [docs/VOICES.md](docs/VOICES.md#voice-pack).

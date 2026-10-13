@@ -13,6 +13,7 @@ const dialogueEvents = {
   'level_start',
   'question',
   'correct',
+  'correct_retry',
   'wrong_first',
   'wrong_again',
   'level_pass',

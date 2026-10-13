@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../audio/audio_manager.dart';
+
 import '../bn.dart';
 import '../dashboards/child_dashboard.dart';
 import '../game_scope.dart';
@@ -24,6 +26,7 @@ class _MapScreenState extends State<MapScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       final scope = GameScope.of(context);
+      scope.audio.sfx(Sfx.hello);
       scope.coach.welcome(scope.player.name);
     });
   }
@@ -73,6 +76,7 @@ class _MapScreenState extends State<MapScreen> {
       body: SafeArea(
         child: Column(
           children: [
+            const MissingVoiceBanner(),
             if (player.isGuest)
               Material(
                 color: const Color(0xFFFFE8A3),

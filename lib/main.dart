@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'audio/audio_manager.dart';
@@ -17,6 +19,7 @@ Future<void> main() async {
   final store = await ProfileStore.load();
   final cast = await Cast.load();
   final audio = AudioManager.device(await AudioSettings.load(), clips: cast.clips);
+  unawaited(audio.checkVoice()); // Finds a Bangla voice before the first line is spoken.
   runApp(FlnApp(content: content, store: store, cast: cast, audio: audio));
 }
 

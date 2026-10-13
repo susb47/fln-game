@@ -6,6 +6,7 @@ import '../data/content.dart';
 import '../game_scope.dart';
 import '../logic/puzzle_factory.dart';
 import '../logic/question.dart';
+import '../widgets/anim.dart';
 import '../widgets/sound_widgets.dart';
 import '../widgets/visuals.dart';
 
@@ -35,7 +36,10 @@ class _PlacementScreenState extends State<PlacementScreen> {
       _q = _factory.forLevel(_probes.first);
       final coach = GameScope.of(context).coach;
       final first = _q!;
-      WidgetsBinding.instance.addPostFrameCallback((_) => coach.placementStart(first));
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        GameScope.of(context).audio.sfx(Sfx.hello);
+        coach.placementStart(first);
+      });
     }
   }
 
@@ -57,6 +61,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
         _picked = null;
         _q = _factory.forLevel(_probes[_results.length]);
       });
+      GameScope.of(context).audio.sfx(Sfx.whoosh);
       GameScope.of(context).coach.question(_q!);
     });
   }
@@ -88,6 +93,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              const MissingVoiceBanner(),
               Text(
                 '${bn(_results.length + 1)} / ${bn(_probes.length)}',
                 textAlign: TextAlign.center,
@@ -96,13 +102,23 @@ class _PlacementScreenState extends State<PlacementScreen> {
               const SizedBox(height: 8),
               const CaptionBubble(),
               const SizedBox(height: 12),
-              Text(
-                q.prompt,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              PopIn(
+                key: ValueKey('prompt_${_results.length}'),
+                from: const Offset(0, -0.5),
+                curve: Curves.easeOutBack,
+                duration: const Duration(milliseconds: 450),
+                child: Text(
+                  q.prompt,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
               ),
               const SizedBox(height: 24),
-              VisualsView(q.visuals),
+              VisualsView(
+                q.visuals,
+                key: ValueKey('visuals_${_results.length}'),
+                onPop: () => GameScope.of(context).audio.sfx(Sfx.pop),
+              ),
               const SizedBox(height: 32),
               Wrap(
                 alignment: WrapAlignment.center,
@@ -110,12 +126,17 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 runSpacing: 16,
                 children: [
                   for (var i = 0; i < q.options.length; i++)
-                    AnswerButton(
-                      key: ValueKey('answer_$i'),
-                      option: q.options[i],
-                      // Neutral highlight: placement never marks an answer wrong.
-                      state: _picked == i ? AnswerState.correct : AnswerState.idle,
-                      onTap: () => _onTap(i),
+                    PopIn(
+                      key: ValueKey('answer_in_${_results.length}_$i'),
+                      delay: VisualsView.entranceTime(q.visuals) + Duration(milliseconds: 110 * i),
+                      from: const Offset(0, 0.6),
+                      child: AnswerButton(
+                        key: ValueKey('answer_$i'),
+                        option: q.options[i],
+                        // Neutral highlight: placement never marks an answer wrong.
+                        state: _picked == i ? AnswerState.correct : AnswerState.idle,
+                        onTap: () => _onTap(i),
+                      ),
                     ),
                 ],
               ),

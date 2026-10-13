@@ -51,7 +51,8 @@ lib/
   game_scope.dart           InheritedWidget: gives every screen the content, the store, the player,
                             the characters (cast), the audio manager and the coach
   audio/                    audio_manager (speech queue, clips, effects, captions), coach (who says what),
-                            audio_settings (voice / effects / captions / volume)
+                            audio_settings (voice / effects / captions / volume),
+                            voice_pack (stitches recorded clips; falls back to text-to-speech)
   data/cast.dart            loads characters.json, dialogue.json, voice/clips.json
   bn.dart                   Bangla digits bn(), dates, minutes, percent, praise + try-again lines, avatars
   data/content.dart         IslandDef, LevelDef, PuzzleSpec, AchievementDef; Content.load() reads
@@ -64,15 +65,18 @@ lib/
                             saved in shared_preferences under key 'profiles_v2'
   screens/                  auth, placement, map, island (zig-zag path), play, result, achievements
   dashboards/               child_dashboard, teacher_dashboard, dashboard_widgets (kept separate on purpose)
-  widgets/                  visuals (object groups, answer buttons, stars), adult_gate (grown-up sum)
+  widgets/                  visuals (object groups, answer buttons, stars), anim (PopIn, Shake, Pulse,
+                            CrossOut), celebration (confetti, praise card), sound_widgets, adult_gate
 assets/
   levels/                   one JSON file per level (files starting with _ are ignored: _template.json)
   config/                   islands.json, achievements.json, characters.json, dialogue.json
   sfx/                      sound effects (made for this project)
-  voice/                    recorded clips + clips.json (empty for now: text-to-speech is used)
+  voice/                    clips.json + tuki/, bindu/, piku/ clip folders (empty: text-to-speech is used)
   brand/                    app_icon.png, company_logo.png (used in the app)
   fonts/                    Noto Sans Bengali
-docs/                       this guide, LEVELS.md, DASHBOARDS.md, brand/ (logo sources)
+docs/                       this guide, LEVELS.md, DASHBOARDS.md, VOICES.md, voice_script.csv, brand/
+tools/                      make_sfx.py (sound effects), voice_pack.py (link or make voice clips)
+tool/                       voice_script_test.dart (writes docs/voice_script.csv)
 test/                       content, progression and app tests
 ```
 

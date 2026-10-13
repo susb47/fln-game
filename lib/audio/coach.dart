@@ -42,9 +42,13 @@ class Coach {
 
   void question(Question q) => _say([questionLine(q)]);
 
-  void correct() {
+  /// Cheers a right answer and returns the line, so the screen can show the same words.
+  /// [afterRetry]: the child got there after a mistake.
+  Line? correct({bool afterRetry = false}) {
     audio.sfx(Sfx.correct);
-    _say([line('correct')]);
+    final l = (afterRetry ? line('correct_retry') : null) ?? line('correct');
+    _say([l]);
+    return l;
   }
 
   /// [wrongTries] counts wrong taps on this question so far (1 = first mistake).
