@@ -1,0 +1,15 @@
+{
+  "id": "pattern_03",
+  "island": "pattern",
+  "order": 3,
+  "title": "ক ক খ নকশা",
+  "grade": 1,
+  "questions": 6,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_pictures",
+      "unit": "AAB"
+    }
+  ]
+}

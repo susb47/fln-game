@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5EC8F2"/><stop offset="1" stop-color="#BDE9FB"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1FA2D6"/><stop offset="1" stop-color="#0A6FA8"/>
+    </linearGradient>
+    <clipPath id="r"><rect width="1024" height="1024" rx="224"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="1024" height="1024" fill="url(#sky)"/>
+        <circle cx="800" cy="230" r="150" fill="#FFF6C8" opacity="0.55"/>
+    <circle cx="800" cy="230" r="110" fill="#FFD23F"/>
+    <rect y="600" width="1024" height="424" fill="url(#sea)"/>
+    <path d="M0 610 Q 128 580 256 610 T 512 610 T 768 610 T 1024 610 V 640 H 0 Z" fill="#7FD3F0" opacity="0.6"/>
+    <!-- island -->
+    <ellipse cx="640" cy="625" rx="300" ry="95" fill="#F4C66B"/>
+    <ellipse cx="640" cy="600" rx="250" ry="60" fill="#5CC46A"/>
+    <!-- palm trunk -->
+    <path d="M610 590 C 600 470, 625 370, 680 300" stroke="#8B5A2B" stroke-width="34" fill="none" stroke-linecap="round"/>
+    <!-- leaves -->
+    <g fill="#2E9E4F">
+      <path d="M680 300 C 600 250, 520 270, 470 330 C 560 300, 620 310, 680 300 Z"/>
+      <path d="M680 300 C 640 220, 560 190, 500 200 C 580 230, 630 260, 680 300 Z"/>
+      <path d="M680 300 C 720 210, 800 190, 860 220 C 790 230, 730 260, 680 300 Z"/>
+      <path d="M680 300 C 770 270, 850 300, 890 370 C 810 330, 750 315, 680 300 Z"/>
+      <path d="M680 300 C 690 230, 680 170, 650 130 C 700 170, 710 240, 680 300 Z"/>
+    </g>
+    <circle cx="670" cy="315" r="18" fill="#7A4A1E"/><circle cx="700" cy="318" r="18" fill="#7A4A1E"/>
+    <!-- stepping stones -->
+    <g fill="#08507E" opacity="0.45"><ellipse cx="175" cy="902" rx="110" ry="58"/><ellipse cx="300" cy="797" rx="95" ry="50"/><ellipse cx="420" cy="700" rx="80" ry="42"/></g>
+    <g font-family="Noto Sans Bengali" font-weight="700" text-anchor="middle" fill="#0A4F7A">
+      <ellipse cx="175" cy="890" rx="110" ry="58" fill="#FFFFFF"/><text x="175" y="923" font-size="96">১</text>
+      <ellipse cx="300" cy="785" rx="95" ry="50" fill="#FFFFFF"/><text x="300" y="815" font-size="84">২</text>
+      <ellipse cx="420" cy="690" rx="80" ry="42" fill="#FFFFFF"/><text x="420" y="716" font-size="72">৩</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "id": "pattern_15",
+  "island": "pattern",
+  "order": 15,
+  "title": "লাফিয়ে গোনো",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        2,
+        5,
+        10
+      ],
+      "direction": "up",
+      "maxStart": 20
+    }
+  ]
+}

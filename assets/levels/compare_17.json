@@ -1,0 +1,17 @@
+{
+  "id": "compare_17",
+  "island": "compare",
+  "order": 17,
+  "title": "১০০ পর্যন্ত বড়",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "compare_numbers",
+      "min": 1,
+      "max": 100,
+      "ask": "more"
+    }
+  ]
+}

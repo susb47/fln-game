@@ -1,0 +1,17 @@
+{
+  "id": "compare_19",
+  "island": "compare",
+  "order": 19,
+  "title": "১০০ পর্যন্ত মিশ্র",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "compare_numbers",
+      "min": 0,
+      "max": 100,
+      "ask": "mixed"
+    }
+  ]
+}

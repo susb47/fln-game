@@ -1,0 +1,22 @@
+{
+  "id": "pattern_04",
+  "island": "pattern",
+  "order": 4,
+  "title": "ক খ খ নকশা",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_pictures",
+      "unit": "ABB",
+      "objects": [
+        "🌸",
+        "🌻",
+        "🌺",
+        "🌷",
+        "🌼"
+      ]
+    }
+  ]
+}

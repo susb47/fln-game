@@ -1,0 +1,23 @@
+{
+  "id": "addition_05",
+  "island": "addition",
+  "order": 5,
+  "title": "৮ পর্যন্ত যোগ",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "add_objects",
+      "maxSum": 8,
+      "objects": [
+        "🐟",
+        "🐄",
+        "🐐",
+        "🐓",
+        "🦆",
+        "🐘"
+      ]
+    }
+  ]
+}

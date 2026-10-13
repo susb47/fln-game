@@ -1,0 +1,24 @@
+{
+  "id": "counting_18",
+  "island": "counting",
+  "order": 18,
+  "title": "১১ থেকে ২০",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 11,
+      "max": 20,
+      "objects": [
+        "🐟",
+        "🐄",
+        "🐐",
+        "🐓",
+        "🦆",
+        "🐘"
+      ]
+    }
+  ]
+}

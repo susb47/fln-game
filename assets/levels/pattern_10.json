@@ -1,0 +1,19 @@
+{
+  "id": "pattern_10",
+  "island": "pattern",
+  "order": 10,
+  "title": "দুই দুই করে",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        2
+      ],
+      "direction": "up",
+      "maxStart": 10
+    }
+  ]
+}

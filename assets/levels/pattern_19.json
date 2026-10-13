@@ -1,0 +1,20 @@
+{
+  "id": "pattern_19",
+  "island": "pattern",
+  "order": 19,
+  "title": "৫০ পর্যন্ত লাফ",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        2,
+        5
+      ],
+      "direction": "mixed",
+      "maxStart": 50
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "counting_14",
+  "island": "counting",
+  "order": 14,
+  "title": "১১ থেকে ১৪",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 11,
+      "max": 14
+    }
+  ]
+}

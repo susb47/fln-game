@@ -1,0 +1,34 @@
+{
+  "characters": [
+    {
+      "id": "tuki", "name": "টুকি", "kind": "শিয়াল", "emoji": "🦊", "color": "#F28C28", "active": true,
+      "role": "Main companion: starts levels, cheers, models trying again",
+      "voice": { "pitch": 1.25, "rate": 1.0 },
+      "signature": "চলো, দেখি কী হয়!"
+    },
+    {
+      "id": "bindu", "name": "বিন্দু", "kind": "রোবট", "emoji": "🤖", "color": "#4C9BE8", "active": true,
+      "role": "Learning companion: first hint, shows a strategy without giving the answer",
+      "voice": { "pitch": 1.0, "rate": 0.9 },
+      "signature": "একবার গুনে দেখি!"
+    },
+    {
+      "id": "piku", "name": "পিকু স্যার", "kind": "পেঁচা", "emoji": "🦉", "color": "#8D6E63", "active": true,
+      "role": "Gentle mentor: helps after a second mistake and after a hard level",
+      "voice": { "pitch": 0.85, "rate": 0.85 },
+      "signature": "ভুল থেকেও শেখা যায়!"
+    },
+    {
+      "id": "jhilimili", "name": "ঝিলিমিলি", "kind": "খরগোশ", "emoji": "🐰", "color": "#E86FA8", "active": false,
+      "role": "Later: variety and alternate strategies",
+      "voice": { "pitch": 1.4, "rate": 1.1 },
+      "signature": "আরেকটা উপায় খুঁজি!"
+    },
+    {
+      "id": "gubu", "name": "গুবু", "kind": "হাতি", "emoji": "🐘", "color": "#7E8CA3", "active": false,
+      "role": "Later: sharing, grouping and village problems",
+      "voice": { "pitch": 0.75, "rate": 0.85 },
+      "signature": "সবাই মিলে সমাধান করি!"
+    }
+  ]
+}

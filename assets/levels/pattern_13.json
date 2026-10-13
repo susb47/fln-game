@@ -1,0 +1,19 @@
+{
+  "id": "pattern_13",
+  "island": "pattern",
+  "order": 13,
+  "title": "দশ দশ করে",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        10
+      ],
+      "direction": "up",
+      "maxStart": 10
+    }
+  ]
+}

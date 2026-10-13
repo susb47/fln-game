@@ -1,0 +1,17 @@
+{
+  "id": "compare_09",
+  "island": "compare",
+  "order": 9,
+  "title": "বড় না ছোট?",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "compare_numbers",
+      "min": 0,
+      "max": 10,
+      "ask": "mixed"
+    }
+  ]
+}

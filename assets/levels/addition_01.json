@@ -1,0 +1,15 @@
+{
+  "id": "addition_01",
+  "island": "addition",
+  "order": 1,
+  "title": "৩ পর্যন্ত যোগ",
+  "grade": 1,
+  "questions": 6,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "add_objects",
+      "maxSum": 3
+    }
+  ]
+}

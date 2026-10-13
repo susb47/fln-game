@@ -1,4 +1,6 @@
-# সংখ্যার দ্বীপ (Number Islands), v0.2
+# সংখ্যার দ্বীপ (Number Islands), v0.4
+
+Docs: [developer guide](docs/DEVELOPER_GUIDE.md) · [voices and sound](docs/VOICES.md) · [adding levels](docs/LEVELS.md) · [dashboard plan](docs/DASHBOARDS.md)
 
 A puzzle game for Bangladesh primary grades 1 to 3, built from `FLN_Puzzle_Game_Plan.docx`.
 
@@ -11,7 +13,7 @@ A puzzle game for Bangladesh primary grades 1 to 3, built from `FLN_Puzzle_Game_
 - **Level progression**: each island is a path of levels. Pass a level (75% first-try correct by
   default) to open the next. 1 to 3 stars per level. Failing a level twice suggests the easier one before it.
   Islands open after finishing levels on an earlier island.
-- **18 levels** across 4 islands: counting, more/less, add/subtract (including picture take-away), patterns.
+- **100 levels**, 25 on each of 4 islands: counting, more/less, add/subtract (including picture take-away), patterns.
 - **14 achievements** (first level, star counts, perfect levels, island complete, 3- and 7-day streaks...).
 - **Dashboards**: "আমার অগ্রগতি" for the child (📊 on the map) and a teacher/parent dashboard
   (from the sign-in screen, behind a grown-up sum) showing who is stuck on which skill.
@@ -35,7 +37,7 @@ lib/logic/              puzzle_factory (questions), progression (stars, unlocks,
 lib/screens/            auth, placement, map, island, play, result, achievements
 lib/dashboards/         child_dashboard.dart, teacher_dashboard.dart, dashboard_widgets.dart
 lib/widgets/            puzzle visuals, answer buttons, stars, grown-up check
-docs/                   LEVELS.md (how to add levels), DASHBOARDS.md (dashboard plan)
+docs/                   DEVELOPER_GUIDE.md, LEVELS.md (how to add levels), DASHBOARDS.md (dashboard plan), brand/
 test/                   content checks for every level file, progression rules, full play-through
 ```
 
@@ -72,4 +74,9 @@ If you still see a black screen anywhere, note which screen and whether it was C
 ## Levels (v0.3)
 - 100 levels: 25 on each island (counting, compare, addition, pattern), in `assets/levels/`. Each has a `grade` tag (1-12 → Grade 1, 13-20 → Grade 2, 21-25 → Grade 3, roughly).
 - Android build settings: `android/gradle.properties` keeps `kotlin.incremental=false` (always keep this line) and uses a 2 GB Gradle heap to suit an 8 GB machine.
-"# fln-game" 
+
+## Voices and sound (v0.4)
+- Tuki 🦊 reads questions and cheers, Bindu 🤖 gives the first hint, Professor Piku 🦉 helps after a second mistake. Captions show what is said; tap to hear again.
+- Uses the phone's Bangla text-to-speech now; drop recorded clips into `assets/voice/` later. Sound effects, mute, captions and volume in the speaker menu.
+- Edit lines in `assets/config/dialogue.json`, characters in `assets/config/characters.json`. Details: [docs/VOICES.md](docs/VOICES.md).
+- New packages: `flutter_tts`, `audioplayers`. Run `flutter pub get` after updating.

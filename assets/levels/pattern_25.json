@@ -1,0 +1,33 @@
+{
+  "id": "pattern_25",
+  "island": "pattern",
+  "order": 25,
+  "title": "নকশার মহাপরীক্ষা",
+  "grade": 3,
+  "questions": 12,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_pictures",
+      "unit": "ABCD"
+    },
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        3,
+        5,
+        10
+      ],
+      "direction": "mixed",
+      "maxStart": 100
+    },
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        100
+      ],
+      "direction": "up",
+      "maxStart": 100
+    }
+  ]
+}

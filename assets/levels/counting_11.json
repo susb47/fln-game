@@ -1,0 +1,35 @@
+{
+  "id": "counting_11",
+  "island": "counting",
+  "order": 11,
+  "title": "ফুলের বাগান",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 6,
+      "max": 10,
+      "objects": [
+        "🌸",
+        "🌻",
+        "🌺",
+        "🌷",
+        "🌼"
+      ]
+    },
+    {
+      "type": "find_group",
+      "min": 4,
+      "max": 10,
+      "objects": [
+        "🌸",
+        "🌻",
+        "🌺",
+        "🌷",
+        "🌼"
+      ]
+    }
+  ]
+}

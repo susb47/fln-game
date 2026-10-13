@@ -1,0 +1,17 @@
+{
+  "id": "compare_24",
+  "island": "compare",
+  "order": 24,
+  "title": "বড় সংখ্যার খেলা",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "compare_numbers",
+      "min": 50,
+      "max": 100,
+      "ask": "mixed"
+    }
+  ]
+}

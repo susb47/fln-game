@@ -1,0 +1,17 @@
+{
+  "id": "compare_21",
+  "island": "compare",
+  "order": 21,
+  "title": "কাছাকাছি সংখ্যা ২",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "compare_numbers",
+      "min": 80,
+      "max": 100,
+      "ask": "mixed"
+    }
+  ]
+}

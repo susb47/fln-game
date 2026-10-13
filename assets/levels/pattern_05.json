@@ -1,0 +1,15 @@
+{
+  "id": "pattern_05",
+  "island": "pattern",
+  "order": 5,
+  "title": "তিনের নকশা",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_pictures",
+      "unit": "ABC"
+    }
+  ]
+}

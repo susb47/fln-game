@@ -1,0 +1,33 @@
+{
+  "id": "counting_25",
+  "island": "counting",
+  "order": 25,
+  "title": "গণনার মহাপরীক্ষা",
+  "grade": 3,
+  "questions": 12,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 1,
+      "max": 20
+    },
+    {
+      "type": "find_group",
+      "min": 1,
+      "max": 10
+    },
+    {
+      "type": "count",
+      "min": 11,
+      "max": 20,
+      "objects": [
+        "⭐",
+        "🌙",
+        "☀️",
+        "☁️",
+        "🌈"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "counting_23",
+  "island": "counting",
+  "order": 23,
+  "title": "দ্রুত গোনো",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 12,
+      "max": 20
+    },
+    {
+      "type": "find_group",
+      "min": 7,
+      "max": 10
+    }
+  ]
+}

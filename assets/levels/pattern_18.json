@@ -1,0 +1,19 @@
+{
+  "id": "pattern_18",
+  "island": "pattern",
+  "order": 18,
+  "title": "চার চার করে",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        4
+      ],
+      "direction": "up",
+      "maxStart": 10
+    }
+  ]
+}

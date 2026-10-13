@@ -1,0 +1,16 @@
+{
+  "id": "counting_16",
+  "island": "counting",
+  "order": 16,
+  "title": "১৫ থেকে ১৮",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 15,
+      "max": 18
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "addition_04",
+  "island": "addition",
+  "order": 4,
+  "title": "ছবিতে বিয়োগ",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "subtract_objects",
+      "max": 5
+    }
+  ]
+}

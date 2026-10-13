@@ -1,0 +1,23 @@
+{
+  "id": "counting_20",
+  "island": "counting",
+  "order": 20,
+  "title": "স্কুলের জিনিস",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 1,
+      "max": 20,
+      "objects": [
+        "✏️",
+        "📚",
+        "🎒",
+        "📏",
+        "🖍️"
+      ]
+    }
+  ]
+}

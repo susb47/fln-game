@@ -1,0 +1,16 @@
+{
+  "id": "counting_03",
+  "island": "counting",
+  "order": 3,
+  "title": "ঠিক দলটি খোঁজো",
+  "grade": 1,
+  "questions": 6,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "find_group",
+      "min": 1,
+      "max": 5
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "_help": "Recorded voice clips. Map the exact sentence (as in dialogue.json) to an audio file in this folder, e.g. \"দারুণ!\": \"tuki_darun.mp3\". Sentences with no clip are spoken by the phone's text-to-speech.",
+  "clips": {}
+}

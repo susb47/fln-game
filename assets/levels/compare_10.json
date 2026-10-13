@@ -1,0 +1,24 @@
+{
+  "id": "compare_10",
+  "island": "compare",
+  "order": 10,
+  "title": "দল আর সংখ্যা",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "compare_groups",
+      "min": 1,
+      "max": 10,
+      "ask": "mixed",
+      "minGap": 1
+    },
+    {
+      "type": "compare_numbers",
+      "min": 1,
+      "max": 10,
+      "ask": "mixed"
+    }
+  ]
+}

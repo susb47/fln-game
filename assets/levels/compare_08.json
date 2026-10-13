@@ -1,0 +1,17 @@
+{
+  "id": "compare_08",
+  "island": "compare",
+  "order": 8,
+  "title": "ছোট সংখ্যা খোঁজো",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "compare_numbers",
+      "min": 1,
+      "max": 10,
+      "ask": "less"
+    }
+  ]
+}

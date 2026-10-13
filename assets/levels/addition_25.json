@@ -1,0 +1,23 @@
+{
+  "id": "addition_25",
+  "island": "addition",
+  "order": 25,
+  "title": "যোগ-বিয়োগের মহাপরীক্ষা",
+  "grade": 3,
+  "questions": 12,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "add_objects",
+      "maxSum": 10
+    },
+    {
+      "type": "add_numbers",
+      "maxSum": 100
+    },
+    {
+      "type": "subtract_numbers",
+      "max": 100
+    }
+  ]
+}

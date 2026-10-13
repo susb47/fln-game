@@ -1,0 +1,19 @@
+{
+  "id": "pattern_23",
+  "island": "pattern",
+  "order": 23,
+  "title": "শত শত করে",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        100
+      ],
+      "direction": "up",
+      "maxStart": 100
+    }
+  ]
+}

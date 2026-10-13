@@ -1,0 +1,24 @@
+{
+  "id": "counting_04",
+  "island": "counting",
+  "order": 4,
+  "title": "প্রাণী গুনি",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 1,
+      "max": 5,
+      "objects": [
+        "🐟",
+        "🐄",
+        "🐐",
+        "🐓",
+        "🦆",
+        "🐘"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "compare_23",
+  "island": "compare",
+  "order": 23,
+  "title": "দ্রুত তুলনা",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "compare_groups",
+      "min": 1,
+      "max": 10,
+      "ask": "mixed",
+      "minGap": 1
+    },
+    {
+      "type": "compare_numbers",
+      "min": 0,
+      "max": 100,
+      "ask": "mixed"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "pattern_06",
+  "island": "pattern",
+  "order": 6,
+  "title": "তিনের মিশ্র নকশা",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_pictures",
+      "unit": "AAB"
+    },
+    {
+      "type": "pattern_pictures",
+      "unit": "ABC"
+    },
+    {
+      "type": "pattern_pictures",
+      "unit": "ABB"
+    }
+  ]
+}

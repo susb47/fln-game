@@ -1,0 +1,21 @@
+{
+  "id": "counting_19",
+  "island": "counting",
+  "order": 19,
+  "title": "২০ পর্যন্ত মিশ্র",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 1,
+      "max": 20
+    },
+    {
+      "type": "find_group",
+      "min": 6,
+      "max": 10
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "pattern_21",
+  "island": "pattern",
+  "order": 21,
+  "title": "কঠিন ছবির নকশা",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_pictures",
+      "unit": "ABCD",
+      "objects": [
+        "✏️",
+        "📚",
+        "🎒",
+        "📏",
+        "🖍️"
+      ]
+    },
+    {
+      "type": "pattern_pictures",
+      "unit": "ABB",
+      "objects": [
+        "⚽",
+        "🏏",
+        "🏀",
+        "🎈",
+        "🪁"
+      ]
+    }
+  ]
+}

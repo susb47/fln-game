@@ -1,0 +1,23 @@
+{
+  "id": "pattern_24",
+  "island": "pattern",
+  "order": 24,
+  "title": "সব লাফ মিশ্র",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        2,
+        3,
+        4,
+        5,
+        10
+      ],
+      "direction": "mixed",
+      "maxStart": 100
+    }
+  ]
+}

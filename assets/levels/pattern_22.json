@@ -1,0 +1,19 @@
+{
+  "id": "pattern_22",
+  "island": "pattern",
+  "order": 22,
+  "title": "পঞ্চাশ পঞ্চাশ করে",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        50
+      ],
+      "direction": "up",
+      "maxStart": 100
+    }
+  ]
+}

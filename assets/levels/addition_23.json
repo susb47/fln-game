@@ -1,0 +1,15 @@
+{
+  "id": "addition_23",
+  "island": "addition",
+  "order": 23,
+  "title": "১০০ পর্যন্ত বিয়োগ",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "subtract_numbers",
+      "max": 100
+    }
+  ]
+}

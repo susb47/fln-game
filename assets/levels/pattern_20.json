@@ -1,0 +1,19 @@
+{
+  "id": "pattern_20",
+  "island": "pattern",
+  "order": 20,
+  "title": "১০০ পর্যন্ত দশক",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        10
+      ],
+      "direction": "mixed",
+      "maxStart": 100
+    }
+  ]
+}

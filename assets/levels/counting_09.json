@@ -1,0 +1,16 @@
+{
+  "id": "counting_09",
+  "island": "counting",
+  "order": 9,
+  "title": "১০ পর্যন্ত দল খোঁজো",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "find_group",
+      "min": 5,
+      "max": 10
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "counting_07",
+  "island": "counting",
+  "order": 7,
+  "title": "৭ পর্যন্ত দল খোঁজো",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "find_group",
+      "min": 3,
+      "max": 7,
+      "objects": [
+        "🚲",
+        "🛺",
+        "🚌",
+        "⛵",
+        "🚗"
+      ]
+    }
+  ]
+}

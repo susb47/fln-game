@@ -1,0 +1,16 @@
+{
+  "id": "counting_08",
+  "island": "counting",
+  "order": 8,
+  "title": "১০ পর্যন্ত গোনো",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 5,
+      "max": 10
+    }
+  ]
+}

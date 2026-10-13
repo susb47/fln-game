@@ -1,0 +1,20 @@
+{
+  "id": "pattern_16",
+  "island": "pattern",
+  "order": 16,
+  "title": "সামনে না পিছনে?",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        1,
+        2
+      ],
+      "direction": "mixed",
+      "maxStart": 30
+    }
+  ]
+}

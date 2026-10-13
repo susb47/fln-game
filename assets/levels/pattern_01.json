@@ -1,0 +1,15 @@
+{
+  "id": "pattern_01",
+  "island": "pattern",
+  "order": 1,
+  "title": "দুইয়ের নকশা",
+  "grade": 1,
+  "questions": 6,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_pictures",
+      "unit": "AB"
+    }
+  ]
+}

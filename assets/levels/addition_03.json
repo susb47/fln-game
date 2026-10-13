@@ -1,0 +1,23 @@
+{
+  "id": "addition_03",
+  "island": "addition",
+  "order": 3,
+  "title": "ফল যোগ করি",
+  "grade": 1,
+  "questions": 6,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "add_objects",
+      "maxSum": 6,
+      "objects": [
+        "🥭",
+        "🍌",
+        "🍉",
+        "🍍",
+        "🍊",
+        "🍎"
+      ]
+    }
+  ]
+}

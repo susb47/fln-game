@@ -1,0 +1,15 @@
+{
+  "id": "addition_15",
+  "island": "addition",
+  "order": 15,
+  "title": "২০ পর্যন্ত যোগ",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "add_numbers",
+      "maxSum": 20
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "pattern_02",
+  "island": "pattern",
+  "order": 2,
+  "title": "ফলের নকশা",
+  "grade": 1,
+  "questions": 6,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_pictures",
+      "unit": "AB",
+      "objects": [
+        "🥭",
+        "🍌",
+        "🍉",
+        "🍍",
+        "🍊",
+        "🍎"
+      ]
+    }
+  ]
+}

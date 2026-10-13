@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 560" width="1600" height="560">
+  <rect width="1600" height="560" rx="40" fill="#FFFFFF"/>
+  <image href="icon.png" x="60" y="60" width="440" height="440"/>
+  <g font-family="Noto Sans Bengali">
+    <text x="560" y="250" font-size="150" font-weight="700" fill="#0A4F7A">সংখ্যার দ্বীপ</text>
+    <text x="566" y="345" font-size="64" font-weight="400" fill="#FB8500">খেলে খেলে গণিত শিখি</text>
+    <g transform="translate(566,420) scale(0.22)">
+      <rect x="0" y="180" width="90" height="100" rx="18" fill="#FFB703"/>
+      <rect x="100" y="100" width="90" height="180" rx="18" fill="#FB8500"/>
+      <rect x="200" y="20" width="90" height="260" rx="18" fill="#219EBC"/>
+    </g>
+    <text x="645" y="478" font-size="38" font-weight="400" fill="#4A6572">ধাপ লার্নিং সিস্টেমস লিমিটেড-এর একটি পণ্য</text>
+  </g>
+</svg>

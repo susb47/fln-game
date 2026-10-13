@@ -1,0 +1,15 @@
+{
+  "id": "addition_12",
+  "island": "addition",
+  "order": 12,
+  "title": "সংখ্যায় বিয়োগ ১০",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "subtract_numbers",
+      "max": 10
+    }
+  ]
+}

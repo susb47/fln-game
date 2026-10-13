@@ -1,0 +1,16 @@
+{
+  "id": "counting_02",
+  "island": "counting",
+  "order": 2,
+  "title": "৫ পর্যন্ত গোনো",
+  "grade": 1,
+  "questions": 6,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 1,
+      "max": 5
+    }
+  ]
+}

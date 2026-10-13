@@ -1,0 +1,19 @@
+{
+  "id": "pattern_12",
+  "island": "pattern",
+  "order": 12,
+  "title": "পাঁচ পাঁচ করে",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        5
+      ],
+      "direction": "up",
+      "maxStart": 10
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "addition_24",
+  "island": "addition",
+  "order": 24,
+  "title": "১০০ পর্যন্ত মিশ্র",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "add_numbers",
+      "maxSum": 100
+    },
+    {
+      "type": "subtract_numbers",
+      "max": 100
+    }
+  ]
+}

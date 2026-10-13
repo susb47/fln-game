@@ -1,0 +1,8 @@
+{
+  "islands": [
+    { "id": "counting", "title": "গণনা", "emoji": "🍎", "color": "#E76F51", "unlock": null },
+    { "id": "compare", "title": "বেশি না কম", "emoji": "⚖️", "color": "#2A9D8F", "unlock": { "island": "counting", "levels": 2 } },
+    { "id": "addition", "title": "যোগ-বিয়োগ", "emoji": "➕", "color": "#457B9D", "unlock": { "island": "compare", "levels": 2 } },
+    { "id": "pattern", "title": "পরেরটা কী?", "emoji": "🧩", "color": "#9C6ADE", "unlock": null }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "counting_05",
+  "island": "counting",
+  "order": 5,
+  "title": "৫ পর্যন্ত মিশ্র",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 1,
+      "max": 5,
+      "objects": [
+        "🥭",
+        "🍌",
+        "🍉",
+        "🍍",
+        "🍊",
+        "🍎"
+      ]
+    },
+    {
+      "type": "find_group",
+      "min": 1,
+      "max": 5,
+      "objects": [
+        "🌸",
+        "🌻",
+        "🌺",
+        "🌷",
+        "🌼"
+      ]
+    }
+  ]
+}

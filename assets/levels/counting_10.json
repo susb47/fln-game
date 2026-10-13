@@ -1,0 +1,24 @@
+{
+  "id": "counting_10",
+  "island": "counting",
+  "order": 10,
+  "title": "ফলের ঝুড়ি",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 1,
+      "max": 10,
+      "objects": [
+        "🥭",
+        "🍌",
+        "🍉",
+        "🍍",
+        "🍊",
+        "🍎"
+      ]
+    }
+  ]
+}

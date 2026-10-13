@@ -1,0 +1,31 @@
+{
+  "id": "pattern_11",
+  "island": "pattern",
+  "order": 11,
+  "title": "ছবি ও সংখ্যা",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_pictures",
+      "unit": "ABC",
+      "objects": [
+        "⭐",
+        "🌙",
+        "☀️",
+        "☁️",
+        "🌈"
+      ]
+    },
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        1,
+        2
+      ],
+      "direction": "up",
+      "maxStart": 10
+    }
+  ]
+}

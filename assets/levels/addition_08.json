@@ -1,0 +1,15 @@
+{
+  "id": "addition_08",
+  "island": "addition",
+  "order": 8,
+  "title": "১০ পর্যন্ত বিয়োগ",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "subtract_objects",
+      "max": 10
+    }
+  ]
+}

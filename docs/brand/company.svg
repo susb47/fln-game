@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 360" width="1400" height="360">
+  <g transform="translate(40,40)">
+    <rect x="0" y="180" width="90" height="100" rx="18" fill="#FFB703"/>
+    <rect x="100" y="100" width="90" height="180" rx="18" fill="#FB8500"/>
+    <rect x="200" y="20" width="90" height="260" rx="18" fill="#219EBC"/>
+  </g>
+  <g font-family="Inter, Noto Sans Bengali" fill="#023047">
+    <text x="380" y="170" font-size="130" font-weight="700">ধাপ</text>
+    <text x="625" y="168" font-size="60" font-weight="700" fill="#219EBC">Dhaap</text>
+    <text x="382" y="275" font-size="60" font-weight="500">Learning Systems Ltd.</text>
+  </g>
+</svg>

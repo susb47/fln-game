@@ -1,0 +1,18 @@
+{
+  "achievements": [
+    { "id": "first_level", "emoji": "🌱", "title": "প্রথম পা", "description": "প্রথম ধাপ শেষ করো", "type": "levels_completed", "value": 1 },
+    { "id": "five_levels", "emoji": "🚀", "title": "এগিয়ে চলো", "description": "৫টি ধাপ শেষ করো", "type": "levels_completed", "value": 5 },
+    { "id": "ten_levels", "emoji": "🏅", "title": "দশে দশ", "description": "১০টি ধাপ শেষ করো", "type": "levels_completed", "value": 10 },
+    { "id": "stars_10", "emoji": "⭐", "title": "তারা কুড়ানো", "description": "মোট ১০টি তারা জেতো", "type": "total_stars", "value": 10 },
+    { "id": "stars_30", "emoji": "🌟", "title": "তারার ঝুড়ি", "description": "মোট ৩০টি তারা জেতো", "type": "total_stars", "value": 30 },
+    { "id": "perfect_1", "emoji": "💯", "title": "একদম ঠিক", "description": "একটি ধাপে সব প্রথম চেষ্টায় ঠিক করো", "type": "perfect_levels", "value": 1 },
+    { "id": "perfect_5", "emoji": "🎯", "title": "নিশানা পাকা", "description": "৫টি ধাপে তিন তারা পাও", "type": "perfect_levels", "value": 5 },
+    { "id": "counting_done", "emoji": "🍎", "title": "গণনার রাজা", "description": "গণনা দ্বীপের সব ধাপ শেষ করো", "type": "island_complete", "island": "counting" },
+    { "id": "compare_done", "emoji": "⚖️", "title": "তুলনার ওস্তাদ", "description": "বেশি না কম দ্বীপের সব ধাপ শেষ করো", "type": "island_complete", "island": "compare" },
+    { "id": "addition_done", "emoji": "➕", "title": "যোগের জাদুকর", "description": "যোগ-বিয়োগ দ্বীপের সব ধাপ শেষ করো", "type": "island_complete", "island": "addition" },
+    { "id": "pattern_done", "emoji": "🧩", "title": "ধাঁধার গোয়েন্দা", "description": "পরেরটা কী? দ্বীপের সব ধাপ শেষ করো", "type": "island_complete", "island": "pattern" },
+    { "id": "correct_100", "emoji": "🧠", "title": "একশো ঠিক উত্তর", "description": "প্রথম চেষ্টায় ১০০টি ঠিক উত্তর দাও", "type": "correct_answers", "value": 100 },
+    { "id": "streak_3", "emoji": "🔥", "title": "টানা ৩ দিন", "description": "পরপর ৩ দিন খেলো", "type": "streak_days", "value": 3 },
+    { "id": "streak_7", "emoji": "🗓️", "title": "পুরো সপ্তাহ", "description": "পরপর ৭ দিন খেলো", "type": "streak_days", "value": 7 }
+  ]
+}

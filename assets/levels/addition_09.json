@@ -1,0 +1,19 @@
+{
+  "id": "addition_09",
+  "island": "addition",
+  "order": 9,
+  "title": "ছবিতে যোগ-বিয়োগ",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "add_objects",
+      "maxSum": 10
+    },
+    {
+      "type": "subtract_objects",
+      "max": 10
+    }
+  ]
+}

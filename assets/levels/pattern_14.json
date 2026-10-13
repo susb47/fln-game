@@ -1,0 +1,19 @@
+{
+  "id": "pattern_14",
+  "island": "pattern",
+  "order": 14,
+  "title": "দুই করে পিছনে",
+  "grade": 2,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        2
+      ],
+      "direction": "down",
+      "maxStart": 20
+    }
+  ]
+}

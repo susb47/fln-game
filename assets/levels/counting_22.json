@@ -1,0 +1,23 @@
+{
+  "id": "counting_22",
+  "island": "counting",
+  "order": 22,
+  "title": "আকাশের তারা",
+  "grade": 3,
+  "questions": 10,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 10,
+      "max": 20,
+      "objects": [
+        "⭐",
+        "🌙",
+        "☀️",
+        "☁️",
+        "🌈"
+      ]
+    }
+  ]
+}

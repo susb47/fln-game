@@ -1,0 +1,18 @@
+{
+  "id": "compare_01",
+  "island": "compare",
+  "order": 1,
+  "title": "কোনটিতে বেশি?",
+  "grade": 1,
+  "questions": 6,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "compare_groups",
+      "min": 1,
+      "max": 5,
+      "ask": "more",
+      "minGap": 2
+    }
+  ]
+}

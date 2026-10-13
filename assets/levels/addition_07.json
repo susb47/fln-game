@@ -1,0 +1,22 @@
+{
+  "id": "addition_07",
+  "island": "addition",
+  "order": 7,
+  "title": "৭ পর্যন্ত বিয়োগ",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "subtract_objects",
+      "max": 7,
+      "objects": [
+        "🌸",
+        "🌻",
+        "🌺",
+        "🌷",
+        "🌼"
+      ]
+    }
+  ]
+}

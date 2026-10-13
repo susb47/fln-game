@@ -1,0 +1,35 @@
+{
+  "id": "counting_12",
+  "island": "counting",
+  "order": 12,
+  "title": "গাড়ি গুনি",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "count",
+      "min": 1,
+      "max": 10,
+      "objects": [
+        "🚲",
+        "🛺",
+        "🚌",
+        "⛵",
+        "🚗"
+      ]
+    },
+    {
+      "type": "find_group",
+      "min": 1,
+      "max": 10,
+      "objects": [
+        "🚲",
+        "🛺",
+        "🚌",
+        "⛵",
+        "🚗"
+      ]
+    }
+  ]
+}

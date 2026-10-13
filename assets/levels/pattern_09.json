@@ -1,0 +1,19 @@
+{
+  "id": "pattern_09",
+  "island": "pattern",
+  "order": 9,
+  "title": "উল্টো সিঁড়ি",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        1
+      ],
+      "direction": "down",
+      "maxStart": 15
+    }
+  ]
+}

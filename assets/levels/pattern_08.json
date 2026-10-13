@@ -1,0 +1,19 @@
+{
+  "id": "pattern_08",
+  "island": "pattern",
+  "order": 8,
+  "title": "সংখ্যার সিঁড়ি",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_numbers",
+      "steps": [
+        1
+      ],
+      "direction": "up",
+      "maxStart": 10
+    }
+  ]
+}

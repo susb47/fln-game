@@ -1,0 +1,23 @@
+{
+  "id": "pattern_07",
+  "island": "pattern",
+  "order": 7,
+  "title": "চারের নকশা",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "pattern_pictures",
+      "unit": "ABCD",
+      "objects": [
+        "🐟",
+        "🐄",
+        "🐐",
+        "🐓",
+        "🦆",
+        "🐘"
+      ]
+    }
+  ]
+}

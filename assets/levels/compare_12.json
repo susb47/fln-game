@@ -1,0 +1,17 @@
+{
+  "id": "compare_12",
+  "island": "compare",
+  "order": 12,
+  "title": "২০ পর্যন্ত ছোট",
+  "grade": 1,
+  "questions": 8,
+  "pass": 0.75,
+  "puzzles": [
+    {
+      "type": "compare_numbers",
+      "min": 1,
+      "max": 20,
+      "ask": "less"
+    }
+  ]
+}
