@@ -259,6 +259,21 @@ void main() {
     }
   });
 
+  test('the trainer acts out what happens', () {
+    final coach = Coach(loadCast(), AudioManager.silent(), rng: Random(3));
+    coach.levelStart(q);
+    expect(coach.cue.value!.move, TrainerMove.wave);
+    coach.wrong(q, 1);
+    expect(coach.cue.value!.move, TrainerMove.think);
+    coach.wrong(q, 2);
+    expect(coach.cue.value!.move, TrainerMove.nod);
+    coach.correct();
+    expect(coach.cue.value!.move, TrainerMove.cheer);
+    final before = coach.cue.value!.count;
+    coach.correct();
+    expect(coach.cue.value!.count, before + 1, reason: 'the same move can play again');
+  });
+
   test('a right answer after a mistake gets the keep-going praise', () {
     final cast = loadCast();
     final coach = Coach(cast, AudioManager.silent(), rng: Random(2));

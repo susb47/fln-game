@@ -4,6 +4,7 @@ import '../audio/audio_manager.dart';
 import '../data/cast.dart';
 import '../game_scope.dart';
 import 'sound_widgets.dart';
+import 'trainer_actor.dart';
 
 /// The nine children: tap one to make them your trainer. They say hello.
 class TrainerPicker extends StatelessWidget {
@@ -144,7 +145,7 @@ class TrainerButton extends StatelessWidget {
   }
 }
 
-/// The trainer standing next to what they last said. Tap the trainer to change them.
+/// The trainer, moving, next to what they last said. Tap the trainer to make them jump.
 class TrainerStrip extends StatelessWidget {
   final double height;
   const TrainerStrip({super.key, this.height = 110});
@@ -157,11 +158,7 @@ class TrainerStrip extends StatelessWidget {
       builder: (context, _) => Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          GestureDetector(
-            key: const ValueKey('trainer_strip'),
-            onTap: () => showTrainerPicker(context),
-            child: CharacterFigure(scope.coach.trainer, height: height),
-          ),
+          TrainerActor(key: const ValueKey('trainer_strip'), height: height),
           const SizedBox(width: 8),
           const Expanded(
             child: Padding(

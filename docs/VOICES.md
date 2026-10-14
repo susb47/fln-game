@@ -80,6 +80,22 @@ The speaker menu has a "শুনে দেখো" button that makes your traine
 - **Right after a mistake:** the line comes from `correct_retry` ("হাল ছাড়োনি, দারুণ!") and the confetti is lighter.
 - **Passing a level:** a bigger confetti burst on the result screen, and the stars land one at a time, each with a twinkle.
 
+### Trainer moves (v0.6)
+
+The trainer stands at the top of the map, play, placement and result screens (`TrainerStrip` in `lib/widgets/trainer_picker.dart`, drawing `TrainerActor` from `lib/widgets/trainer_actor.dart`). The coach sends a move with each line (`Coach.cue`):
+
+| Event | Move |
+|---|---|
+| welcome, placement start, level start | wave (rocks side to side, 👋) |
+| new question | hop |
+| right answer | cheer (two jumps, ✨) |
+| right after a mistake | jump (⭐) |
+| first mistake | think (head tilt, ❓) |
+| second mistake | nod (👍) |
+| level end | cheer if passed, nod if not |
+
+While idle they breathe and sway; while the voice is speaking they bob. Tapping them makes them jump. Each picture is one flat cut-out, so the whole body moves. Real arm and leg movement needs the art split into parts, or a rigged character made in a tool such as Rive.
+
 ## Voice pack
 
 Recorded (or AI-made) clips replace text-to-speech. Questions change every time ("৮ যোগ ৫ সমান কত?"), so the game stitches a line together from pieces:

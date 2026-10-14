@@ -8,6 +8,7 @@ import '../logic/puzzle_factory.dart';
 import '../logic/question.dart';
 import '../widgets/anim.dart';
 import '../widgets/sound_widgets.dart';
+import '../widgets/trainer_picker.dart';
 import '../widgets/visuals.dart';
 
 /// A short, game-like check for a new player, so they start at their own
@@ -100,7 +101,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 style: const TextStyle(fontSize: 18, color: Colors.black54),
               ),
               const SizedBox(height: 8),
-              const CaptionBubble(),
+              const TrainerStrip(height: 96),
               const SizedBox(height: 12),
               PopIn(
                 key: ValueKey('prompt_${_results.length}'),

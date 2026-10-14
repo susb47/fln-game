@@ -1,10 +1,22 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
+
 import '../bn.dart';
 import '../data/cast.dart';
 import '../logic/progression.dart';
 import '../logic/question.dart';
 import 'audio_manager.dart';
+
+/// A move the trainer makes on screen.
+enum TrainerMove { wave, hop, jump, cheer, think, nod }
+
+/// The latest move asked for. [count] goes up every time, so the same move can repeat.
+class TrainerCue {
+  final TrainerMove move;
+  final int count;
+  const TrainerCue(this.move, this.count);
+}
 
 /// Decides which character says what when something happens in the game.
 ///
@@ -21,6 +33,13 @@ class Coach {
   Coach(this.cast, this.audio, {Random? rng, String? Function()? trainerId})
     : _rng = rng ?? Random(),
       trainerId = trainerId ?? (() => null);
+
+  /// What the trainer should do now. Trainer pictures on screen follow it.
+  final cue = ValueNotifier<TrainerCue?>(null);
+  int _cues = 0;
+
+  /// Makes the trainer on screen do [move].
+  void act(TrainerMove move) => cue.value = TrainerCue(move, ++_cues);
 
   /// The character who guides the current player.
   CharacterDef get trainer => cast.trainer(trainerId());
@@ -40,20 +59,33 @@ class Coach {
 
   void _say(List<Line?> lines) => audio.say([for (final l in lines) ?l]);
 
-  void welcome(String name) => _say([
-    line('welcome', {'name': name}),
-  ]);
+  void welcome(String name) {
+    act(TrainerMove.wave);
+    _say([
+      line('welcome', {'name': name}),
+    ]);
+  }
 
-  void placementStart(Question first) => _say([line('placement_start'), questionLine(first)]);
+  void placementStart(Question first) {
+    act(TrainerMove.wave);
+    _say([line('placement_start'), questionLine(first)]);
+  }
 
-  void levelStart(Question first) => _say([line('level_start'), questionLine(first)]);
+  void levelStart(Question first) {
+    act(TrainerMove.wave);
+    _say([line('level_start'), questionLine(first)]);
+  }
 
-  void question(Question q) => _say([questionLine(q)]);
+  void question(Question q) {
+    act(TrainerMove.hop);
+    _say([questionLine(q)]);
+  }
 
   /// Cheers a right answer and returns the line, so the screen can show the same words.
   /// [afterRetry]: the child got there after a mistake.
   Line? correct({bool afterRetry = false}) {
     audio.sfx(Sfx.correct);
+    act(afterRetry ? TrainerMove.jump : TrainerMove.cheer);
     final l = (afterRetry ? line('correct_retry') : null) ?? line('correct');
     _say([l]);
     return l;
@@ -62,6 +94,7 @@ class Coach {
   /// [wrongTries] counts wrong taps on this question so far (1 = first mistake).
   void wrong(Question q, int wrongTries) {
     audio.sfx(Sfx.wrong);
+    act(wrongTries >= 2 ? TrainerMove.nod : TrainerMove.think);
     _say([
       line(wrongTries >= 2 ? 'wrong_again' : 'wrong_first', {'hint': q.hint}),
     ]);
@@ -69,6 +102,7 @@ class Coach {
 
   void levelEnd(LevelResult r) {
     audio.sfx(r.stars > 0 ? Sfx.levelUp : Sfx.tryAgain);
+    act(r.stars > 0 ? TrainerMove.cheer : TrainerMove.nod);
     _say([
       if (r.stars == 0)
         line('level_fail')

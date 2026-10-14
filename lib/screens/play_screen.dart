@@ -11,6 +11,7 @@ import '../audio/audio_manager.dart';
 import '../widgets/anim.dart';
 import '../widgets/celebration.dart';
 import '../widgets/sound_widgets.dart';
+import '../widgets/trainer_picker.dart';
 import '../widgets/visuals.dart';
 import 'result_screen.dart';
 
@@ -138,7 +139,7 @@ class _PlayScreenState extends State<PlayScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const CaptionBubble(),
+                        const TrainerStrip(height: 96),
                         const SizedBox(height: 12),
                         // Each question plays its entrance: the prompt drops in,
                         // the objects pop in, then the answers rise up.

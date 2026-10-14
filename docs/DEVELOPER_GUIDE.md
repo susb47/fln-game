@@ -26,7 +26,7 @@ On an 8 GB machine, develop in Chrome and test on a real Android phone; avoid th
 ```
 cd C:\dev\fln_game          (short path, no spaces, not in OneDrive)
 flutter pub get
-flutter test                 (28 tests should pass)
+flutter test                 (29 tests should pass)
 flutter run -d chrome
 ```
 
@@ -67,7 +67,8 @@ lib/
   dashboards/               child_dashboard, teacher_dashboard, dashboard_widgets (kept separate on purpose)
   widgets/                  visuals (object groups, answer buttons, stars), anim (PopIn, Shake, Pulse,
                             CrossOut), celebration (confetti, praise card), sound_widgets
-                            (faces, figures, captions), trainer_picker, avatar, adult_gate
+                            (faces, figures, captions), trainer_picker, trainer_actor (animated
+                            trainer), avatar, adult_gate
 assets/
   levels/                   one JSON file per level (files starting with _ are ignored: _template.json)
   config/                   islands.json, achievements.json, characters.json, dialogue.json
@@ -136,7 +137,7 @@ test/                       content, progression and app tests
 
 ## 7. Tests
 
-`flutter test` runs 28 tests (`audio_test.dart` covers the trainers, dialogue, voice pack, mute and replay):
+`flutter test` runs 29 tests (`audio_test.dart` covers the trainers, dialogue, voice pack, mute and replay):
 - `content_test.dart`: every level file, the template, and the config files.
 - `progression_test.dart`: stars, unlocks, placement, achievements and streaks.
 - `app_test.dart`: sign-in, guest play and saving, a level play-through, and the teacher dashboard.

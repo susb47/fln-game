@@ -125,10 +125,18 @@ class AudioManager extends ChangeNotifier {
     for (final line in lines) {
       if (turn != _turn) return;
       caption = line;
+      speaking = settings.voiceOn;
       notifyListeners();
       if (settings.voiceOn) await _speak(line, turn);
     }
+    if (turn == _turn && speaking) {
+      speaking = false;
+      notifyListeners();
+    }
   }
+
+  /// True while a line is being spoken (the trainer moves as they talk).
+  bool speaking = false;
 
   /// Says the last lines again (the replay button).
   Future<void> replay() => say(_last);
@@ -148,6 +156,10 @@ class AudioManager extends ChangeNotifier {
 
   Future<void> stop() async {
     _turn++;
+    if (speaking) {
+      speaking = false;
+      notifyListeners();
+    }
     await _stopVoice();
   }
 

@@ -95,3 +95,4 @@ If you still see a black screen anywhere, note which screen and whether it was C
 - The trainer stands on the map next to what they say, pops up full-size with every cheer, and appears on the result screen.
 - Their faces can also be a player's own picture.
 - Voice pack: trainers share a boy set and a girl set of clips, so the recording script is now 744 clips (372 each).
+- The trainer is alive on the map, play, placement and result screens. They breathe and sway while idle, bob while talking, and act out the game: wave hello, hop for each new question, cheer (two jumps and sparkles) for a right answer, jump with a star after a retry, tilt their head with a "?" after a mistake, and nod with a thumbs-up to encourage. Tap them and they jump. Code: `lib/widgets/trainer_actor.dart`; the moves are picked in `lib/audio/coach.dart`.
