@@ -15,7 +15,15 @@ class Coach {
   final AudioManager audio;
   final Random _rng;
 
-  Coach(this.cast, this.audio, [Random? rng]) : _rng = rng ?? Random();
+  /// The current player's trainer id (null: the first trainer).
+  final String? Function() trainerId;
+
+  Coach(this.cast, this.audio, {Random? rng, String? Function()? trainerId})
+    : _rng = rng ?? Random(),
+      trainerId = trainerId ?? (() => null);
+
+  /// The character who guides the current player.
+  CharacterDef get trainer => cast.trainer(trainerId());
 
   /// A line for [event], with {placeholders} filled in. Null when the event has no lines.
   Line? line(String event, [Map<String, String> fill = const {}]) {
@@ -25,10 +33,10 @@ class Coach {
     for (final MapEntry(:key, :value) in fill.entries) {
       text = text.replaceAll('{$key}', value);
     }
-    return Line(cast.speaker(event), text.trim());
+    return Line(cast.speaker(event, trainerId()), text.trim());
   }
 
-  Line questionLine(Question q) => Line(cast.speaker('question'), q.spoken);
+  Line questionLine(Question q) => Line(cast.speaker('question', trainerId()), q.spoken);
 
   void _say(List<Line?> lines) => audio.say([for (final l in lines) ?l]);
 

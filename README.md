@@ -1,4 +1,4 @@
-# সংখ্যার দ্বীপ (Number Islands), v0.5
+# সংখ্যার দ্বীপ (Number Islands), v0.6
 
 Docs: [developer guide](docs/DEVELOPER_GUIDE.md) · [voices and sound](docs/VOICES.md) · [adding levels](docs/LEVELS.md) · [dashboard plan](docs/DASHBOARDS.md)
 
@@ -89,3 +89,9 @@ If you still see a black screen anywhere, note which screen and whether it was C
 - Every question animates in: the prompt drops in, objects pop in one by one with a soft pop, taken-away objects get crossed out, number patterns drop in tile by tile with a pulsing "?", and the answers rise up last. Wrong answers shake; right answers hop. Result stars land one at a time.
 - New sound effects, all made in `tools/make_sfx.py`: tap, pop, whoosh, hello, correct, wrong, star, level up, try again.
 - Voice pack: recorded or AI-made clips replace text-to-speech, stitched from sentences, words and numbers. `docs/voice_script.csv` lists all 950 clips to make; `tools/voice_pack.py` links them in or makes them with Google Cloud. Details: [docs/VOICES.md](docs/VOICES.md#voice-pack).
+
+## v0.6
+- Nine Bangladeshi children are the trainers (রাফি, মিতু, সাকিব, তিশা, আরিফ, রুমি, জয়, মীম, রাজু). Each player picks one; the trainer reads questions, gives hints and cheers. Change trainer from the face at the top of the map.
+- The trainer stands on the map next to what they say, pops up full-size with every cheer, and appears on the result screen.
+- Their faces can also be a player's own picture.
+- Voice pack: trainers share a boy set and a girl set of clips, so the recording script is now 744 clips (372 each).

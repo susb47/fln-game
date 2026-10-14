@@ -1,17 +1,17 @@
 {
-  "_help": "Who says what, and when. Edit lines freely. {hint}, {stars}, {title}, {name} are filled in by the game. {name} cannot be recorded, so a line with it always uses text-to-speech. 'question' has no lines: the speaker reads the question itself.",
+  "_help": "Who says what, and when. Edit lines freely. {hint}, {stars}, {title}, {name} are filled in by the game. {name} cannot be recorded, so a line with it always uses text-to-speech. 'question' has no lines: the speaker reads the question itself. Speaker \"trainer\" means the trainer the player picked; a character id (e.g. \"tuki\") always uses that character.",
   "events": {
-    "welcome":         { "speaker": "tuki",  "lines": ["আবার স্বাগতম! চলো খেলি।", "হ্যালো! আজ কোন দ্বীপে যাবে?"] },
-    "placement_start": { "speaker": "tuki",  "lines": ["হ্যালো! আমি টুকি। চলো দেখি তুমি কী কী পারো!"] },
-    "level_start":     { "speaker": "tuki",  "lines": ["চলো, দেখি কী হয়!", "নতুন খেলা! চলো শুরু করি।", "ওই দেখো! চলো সমাধান করি।"] },
-    "question":        { "speaker": "tuki" },
-    "correct":         { "speaker": "tuki",  "lines": ["দারুণ!", "খুব ভালো!", "ঠিক বলেছ!", "বাহ্‌, চমৎকার!", "একদম ঠিক!", "শাবাশ!", "তুমি পারো!"] },
-    "correct_retry":   { "speaker": "tuki",  "lines": ["হাল ছাড়োনি, দারুণ!", "চেষ্টা করে পেরেছ! খুব ভালো!", "এই তো হয়েছে! শাবাশ!"] },
-    "wrong_first":     { "speaker": "bindu", "lines": ["একবার গুনে দেখি! {hint}", "চলো আবার দেখি। {hint}"] },
-    "wrong_again":     { "speaker": "piku",  "lines": ["সমস্যা নেই। চলো, একসঙ্গে দেখি। {hint}", "ভুল থেকেও শেখা যায়! {hint}"] },
-    "level_pass":      { "speaker": "tuki",  "lines": ["তুমি পেরেছ! {stars}টি তারা পেলে!", "দারুণ খেললে! {stars}টি তারা!"] },
-    "level_perfect":   { "speaker": "tuki",  "lines": ["সব প্রথমবারেই ঠিক! তিনটি তারা!"] },
-    "level_fail":      { "speaker": "piku",  "lines": ["সমস্যা নেই। এবার অন্যভাবে চেষ্টা করি।", "ভুল থেকেও শেখা যায়! চলো আবার খেলি।"] },
-    "achievement":     { "speaker": "tuki",  "lines": ["নতুন পুরস্কার: {title}!"] }
+    "welcome":         { "speaker": "trainer", "lines": ["আবার স্বাগতম! চলো খেলি।", "হ্যালো! আজ কোন দ্বীপে যাবে?"] },
+    "placement_start": { "speaker": "trainer", "lines": ["হ্যালো! আমি তোমার ট্রেনার। চলো দেখি তুমি কী কী পারো!"] },
+    "level_start":     { "speaker": "trainer", "lines": ["চলো, দেখি কী হয়!", "নতুন খেলা! চলো শুরু করি।", "ওই দেখো! চলো সমাধান করি।"] },
+    "question":        { "speaker": "trainer" },
+    "correct":         { "speaker": "trainer", "lines": ["দারুণ!", "খুব ভালো!", "ঠিক বলেছ!", "বাহ্‌, চমৎকার!", "একদম ঠিক!", "শাবাশ!", "তুমি পারো!"] },
+    "correct_retry":   { "speaker": "trainer", "lines": ["হাল ছাড়োনি, দারুণ!", "চেষ্টা করে পেরেছ! খুব ভালো!", "এই তো হয়েছে! শাবাশ!"] },
+    "wrong_first":     { "speaker": "trainer", "lines": ["একবার গুনে দেখি! {hint}", "চলো আবার দেখি। {hint}"] },
+    "wrong_again":     { "speaker": "trainer", "lines": ["সমস্যা নেই। চলো, একসঙ্গে দেখি। {hint}", "ভুল থেকেও শেখা যায়! {hint}"] },
+    "level_pass":      { "speaker": "trainer", "lines": ["তুমি পেরেছ! {stars}টি তারা পেলে!", "দারুণ খেললে! {stars}টি তারা!"] },
+    "level_perfect":   { "speaker": "trainer", "lines": ["সব প্রথমবারেই ঠিক! তিনটি তারা!"] },
+    "level_fail":      { "speaker": "trainer", "lines": ["সমস্যা নেই। এবার অন্যভাবে চেষ্টা করি।", "ভুল থেকেও শেখা যায়! চলো আবার খেলি।"] },
+    "achievement":     { "speaker": "trainer", "lines": ["নতুন পুরস্কার: {title}!"] }
   }
 }

@@ -4,6 +4,8 @@ import '../bn.dart';
 import '../brand.dart';
 import '../dashboards/teacher_dashboard.dart';
 import '../game_scope.dart';
+import '../widgets/avatar.dart';
+import '../widgets/trainer_picker.dart';
 import '../widgets/adult_gate.dart';
 
 /// "Who is playing?" Children tap their own picture. No passwords.
@@ -16,6 +18,7 @@ class AuthScreen extends StatelessWidget {
     final store = scope.store;
     return Scaffold(
       backgroundColor: const Color(0xFFFFF4D6),
+      // The button stays in view while the child scrolls through pictures and trainers.
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(20),
@@ -127,7 +130,7 @@ class _PlayerCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(avatar, style: const TextStyle(fontSize: 52)),
+              AvatarView(avatar, size: 64),
               const SizedBox(height: 6),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
@@ -158,7 +161,8 @@ class CreateProfileScreen extends StatefulWidget {
 
 class _CreateProfileScreenState extends State<CreateProfileScreen> {
   final _name = TextEditingController();
-  String _avatar = avatars.first;
+  String _avatar = kidAvatars.first;
+  String? _trainer;
 
   @override
   Widget build(BuildContext context) {
@@ -169,6 +173,27 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFFFFF4D6),
         title: Text(widget.fromGuest ? 'খেলা সেভ করো' : 'নতুন খেলোয়াড়'),
+      ),
+      // The button stays in view while the child scrolls through pictures and trainers.
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
+          child: FilledButton(
+            key: const ValueKey('create'),
+            onPressed: ready
+                ? () {
+                    if (widget.fromGuest) {
+                      store.saveGuest(_name.text, _avatar, trainer: _trainer);
+                    } else {
+                      store.create(_name.text, _avatar, trainer: _trainer);
+                    }
+                    Navigator.of(context).popUntil((r) => r.isFirst);
+                  }
+                : null,
+            style: FilledButton.styleFrom(padding: const EdgeInsets.all(16)),
+            child: const Text('চলো খেলি!', style: TextStyle(fontSize: 22)),
+          ),
+        ),
       ),
       body: SafeArea(
         child: ListView(
@@ -197,30 +222,23 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
               spacing: 10,
               runSpacing: 10,
               children: [
-                for (final a in avatars)
+                for (final a in [...kidAvatars, ...avatars])
                   ChoiceChip(
-                    label: Text(a, style: const TextStyle(fontSize: 34)),
+                    key: ValueKey('avatar_$a'),
+                    label: AvatarView(a, size: 44),
                     selected: a == _avatar,
                     onSelected: (_) => setState(() => _avatar = a),
                   ),
               ],
             ),
-            const SizedBox(height: 28),
-            FilledButton(
-              key: const ValueKey('create'),
-              onPressed: ready
-                  ? () {
-                      if (widget.fromGuest) {
-                        store.saveGuest(_name.text, _avatar);
-                      } else {
-                        store.create(_name.text, _avatar);
-                      }
-                      Navigator.of(context).popUntil((r) => r.isFirst);
-                    }
-                  : null,
-              style: FilledButton.styleFrom(padding: const EdgeInsets.all(16)),
-              child: const Text('চলো খেলি!', style: TextStyle(fontSize: 22)),
+            const SizedBox(height: 20),
+            const Text('তোমার ট্রেনার বেছে নাও', style: TextStyle(fontSize: 22)),
+            const Text(
+              'ট্রেনার প্রশ্ন পড়ে শোনাবে, সাহায্য করবে আর উৎসাহ দেবে।',
+              style: TextStyle(fontSize: 16, color: Colors.black54),
             ),
+            const SizedBox(height: 10),
+            TrainerPicker(selected: _trainer, onPick: (t) => setState(() => _trainer = t.id)),
           ],
         ),
       ),

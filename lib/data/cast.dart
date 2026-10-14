@@ -26,11 +26,15 @@ const dialogueEvents = {
 class VoiceProfile {
   final double pitch;
   final double rate;
-  const VoiceProfile({this.pitch = 1.0, this.rate = 1.0});
+
+  /// Characters in the same group share recorded clips (e.g. "boy", "girl").
+  final String? group;
+  const VoiceProfile({this.pitch = 1.0, this.rate = 1.0, this.group});
 
   factory VoiceProfile.fromJson(Map<String, dynamic>? j) => VoiceProfile(
     pitch: (j?['pitch'] as num?)?.toDouble() ?? 1.0,
     rate: (j?['rate'] as num?)?.toDouble() ?? 1.0,
+    group: j?['group'] as String?,
   );
 }
 
@@ -46,6 +50,16 @@ class CharacterDef {
   final VoiceProfile voice;
   final String signature;
 
+  /// A child trainer the player can pick.
+  final bool trainer;
+
+  /// Full-body picture and round face picture (asset paths), if the character has art.
+  final String? image;
+  final String? face;
+
+  /// Which recorded clips this character uses: its voice group, or its own id.
+  String get voiceKey => voice.group ?? id;
+
   const CharacterDef({
     required this.id,
     required this.name,
@@ -56,6 +70,9 @@ class CharacterDef {
     this.role = '',
     this.voice = const VoiceProfile(),
     this.signature = '',
+    this.trainer = false,
+    this.image,
+    this.face,
   });
 
   factory CharacterDef.fromJson(Map<String, dynamic> j) => CharacterDef(
@@ -70,6 +87,9 @@ class CharacterDef {
     role: j['role'] as String? ?? '',
     voice: VoiceProfile.fromJson(j['voice'] as Map<String, dynamic>?),
     signature: j['signature'] as String? ?? '',
+    trainer: j['trainer'] as bool? ?? false,
+    image: j['image'] as String?,
+    face: j['face'] as String?,
   );
 }
 
@@ -102,8 +122,27 @@ class Cast {
     events: {},
   );
 
-  CharacterDef speaker(String event) =>
-      characters[events[event]?.speaker] ?? characters.values.first;
+  /// Speaker name in dialogue.json meaning "the trainer this player picked".
+  static const trainerSpeaker = 'trainer';
+
+  /// The children a player can pick as their trainer, in file order.
+  List<CharacterDef> get trainers => [
+    for (final c in characters.values)
+      if (c.trainer && c.active) c,
+  ];
+
+  /// The player's trainer, or the first trainer when they have not picked one.
+  CharacterDef trainer(String? id) {
+    final t = trainers;
+    return characters[id] ?? (t.isNotEmpty ? t.first : characters.values.first);
+  }
+
+  /// Who says [event]. [trainerId] is the player's chosen trainer.
+  CharacterDef speaker(String event, [String? trainerId]) {
+    final s = events[event]?.speaker;
+    if (s == trainerSpeaker) return trainer(trainerId);
+    return characters[s] ?? trainer(trainerId);
+  }
 
   static Future<Cast> load([AssetBundle? bundle]) async {
     final b = bundle ?? rootBundle;
@@ -159,7 +198,7 @@ class Cast {
       }
       if (!dialogueEvents.contains(name)) {
         errors.add('dialogue.json: unknown event "$name" (known: ${dialogueEvents.join(", ")})');
-      } else if (!characters.containsKey(speaker)) {
+      } else if (speaker != trainerSpeaker && !characters.containsKey(speaker)) {
         errors.add('dialogue.json: "$name" names unknown speaker "$speaker"');
       } else if (lines.isEmpty && name != 'question') {
         errors.add('dialogue.json: "$name" has no lines');

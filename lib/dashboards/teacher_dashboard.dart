@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../bn.dart';
 import '../game_scope.dart';
+import '../widgets/avatar.dart';
 import '../logic/profile.dart';
 import 'child_dashboard.dart';
 import 'dashboard_widgets.dart';
@@ -72,7 +73,7 @@ class TeacherDashboard extends StatelessWidget {
                           children: [
                             for (final (p, l) in stuck)
                               Text(
-                                '• ${p.avatar} ${p.name}: ${content.island(l.island).title}, '
+                                '• ${avatarText(p.avatar)}${p.name}: ${content.island(l.island).title}, '
                                 '${l.title} (${bn(p.levels[l.id]!.fails)} বার চেষ্টা)',
                                 style: const TextStyle(fontSize: 15, color: inkPrimary),
                               ),
@@ -101,7 +102,7 @@ class TeacherDashboard extends StatelessWidget {
                                 DataRow(
                                   onSelectChanged: (_) => _openChild(context, p),
                                   cells: [
-                                    DataCell(Text('${p.avatar} ${p.name}')),
+                                    DataCell(Text('${avatarText(p.avatar)}${p.name}')),
                                     DataCell(
                                       Text(p.lastPlayed == null ? '–' : bnDate(p.lastPlayed!)),
                                     ),

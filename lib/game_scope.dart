@@ -43,7 +43,7 @@ class GameScope extends InheritedWidget {
       store: store,
       cast: c,
       audio: a,
-      coach: Coach(c, a),
+      coach: Coach(c, a, trainerId: () => store.current?.trainer),
       child: child,
     );
   }

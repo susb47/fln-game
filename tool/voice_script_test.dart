@@ -30,15 +30,21 @@ void main() {
       dialogueJson: File(dialogueFile).readAsStringSync(),
     );
 
-    // speaker -> text -> where it is used
+    // voice -> text -> where it is used. A voice is a trainer voice group
+    // ("boy", "girl") or a character id.
     final need = <String, Map<String, Set<String>>>{};
     void add(String speaker, String text, String where) {
-      for (final p in VoicePack.allPieces(text)) {
-        need.putIfAbsent(speaker, () => {}).putIfAbsent(p, () => {}).add(where);
+      final voices = speaker == Cast.trainerSpeaker
+          ? {for (final t in cast.trainers) t.voiceKey}
+          : {cast.characters[speaker]?.voiceKey ?? speaker};
+      for (final v in voices) {
+        for (final p in VoicePack.allPieces(text)) {
+          need.putIfAbsent(v, () => {}).putIfAbsent(p, () => {}).add(where);
+        }
       }
     }
 
-    String who(String event) => cast.events[event]?.speaker ?? 'tuki';
+    String who(String event) => cast.events[event]?.speaker ?? Cast.trainerSpeaker;
 
     // Questions and hints, from every level.
     final hints = <String>{};
@@ -113,6 +119,8 @@ void main() {
       }
     }
 
+    // Lines nobody says any more drop out; their numbers are not reused.
+    rows.removeWhere((key, r) => need[r[1]]?.containsKey(r[2]) != true);
     final buf = StringBuffer('﻿file,speaker,text,kind,used_in\n');
     for (final r in rows.values) {
       buf.writeln(r.map(_csv).join(','));

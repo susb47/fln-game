@@ -2,34 +2,45 @@
 
 The game talks. A character reads each question, cheers a right answer, gives a hint after a wrong one, and sums up each level. Everything said also shows as a caption, and the child can tap it to hear it again.
 
+## The trainers
+
+Nine Bangladeshi children are the trainers: রাফি, মিতু, সাকিব, তিশা, আরিফ, রুমি, জয়, মীম and রাজু. Each player picks one when they make their profile, and can change it any time by tapping the trainer's face at the top of the map. The trainer stands on the map, pops up with every cheer, and appears on the result screen.
+
+Their pictures are in `assets/characters/` (full body) and `assets/characters/faces/` (round faces), cut out from the character sheet. Children can also pick one of the faces as their own player picture.
+
 ## Who speaks when
 
-| Moment | Speaker | Event in `dialogue.json` |
-|---|---|---|
-| Map opens after sign-in | Tuki 🦊 | `welcome` |
-| Placement check starts | Tuki | `placement_start` |
-| Level starts | Tuki | `level_start`, then the first question |
-| Each question | Tuki | `question` (reads the question itself) |
-| Right answer | Tuki | `correct` (+ chime) |
-| First wrong answer | Bindu 🤖 | `wrong_first` + the question's hint |
-| Second wrong answer | Professor Piku 🦉 | `wrong_again` + the hint |
-| Level passed | Tuki | `level_pass` or `level_perfect` (+ fanfare) |
-| Level not passed | Piku | `level_fail` |
-| New achievement | Tuki | `achievement` |
+The player's trainer says everything (`"speaker": "trainer"` in `dialogue.json`):
 
-Jhilimili 🐰 and Gubu 🐘 are in `characters.json` with `"active": false`. They are ready for the later modes (Help the Village and so on).
+| Moment | Event in `dialogue.json` |
+|---|---|
+| Map opens after sign-in | `welcome` |
+| Placement check starts | `placement_start` |
+| Level starts | `level_start`, then the first question |
+| Each question | `question` (reads the question itself) |
+| Right answer | `correct`, or `correct_retry` after a mistake (+ chime) |
+| First wrong answer | `wrong_first` + the question's hint |
+| Second wrong answer | `wrong_again` + the hint |
+| Level passed | `level_pass` or `level_perfect` (+ fanfare) |
+| Level not passed | `level_fail` |
+| New achievement | `achievement` |
+
+To have one fixed character say an event instead, put that character's `id` as its `speaker`. The animal mascots (Tuki 🦊, Bindu 🤖, Piku 🦉, Jhilimili 🐰, Gubu 🐘) are still in `characters.json` with `"active": false`, ready for later modes.
+
+**Adding a trainer:** add an entry to `characters.json` with `"trainer": true`, an `image` and a `face` (transparent PNGs), a `color`, and `voice.group` set to `boy` or `girl`.
 
 ## Changing what they say
 
 Edit `assets/config/dialogue.json`. No code changes are needed.
-- Each event has a `speaker` (a character `id`) and `lines`. The game picks one line at random.
+- Each event has a `speaker` (`trainer`, or a character `id`) and `lines`. The game picks one line at random.
 - `{hint}`, `{stars}`, `{title}` and `{name}` are filled in by the game.
 - Keep lines to one short sentence. Never shame the child, and never use countdowns.
 - After editing, run `flutter test`. `audio_test.dart` checks that every event exists and names a real character.
 
-To give a character a different speaker, or to change its voice, edit `assets/config/characters.json`:
+To change a character's voice, edit `assets/config/characters.json`:
 - `voice.pitch` sets the pitch. 1.0 is normal; higher sounds younger.
-- `voice.rate` sets the speed. 1.0 is normal; Piku is slower at 0.85.
+- `voice.rate` sets the speed. 1.0 is normal.
+- `voice.group` (`boy` or `girl`) decides which set of recorded clips the trainer uses, so one recording set serves all five boys and one serves all four girls.
 
 ## Text-to-speech now, recorded voice later
 
@@ -58,7 +69,7 @@ If none is found, the map shows an orange strip and the speaker menu shows the s
 | Chrome on Windows | No | Use Microsoft Edge (`flutter run -d edge`), which has Bangla voices, or test on the phone. |
 | Windows app | Usually no | Test on the phone. |
 
-The speaker menu has a "শুনে দেখো" button that makes Tuki speak, so you can check the voice without playing a level.
+The speaker menu has a "শুনে দেখো" button that makes your trainer speak, so you can check the voice without playing a level.
 
 ## Animations
 
@@ -78,9 +89,9 @@ Recorded (or AI-made) clips replace text-to-speech. Questions change every time 
 
 If any piece is missing, the whole line uses text-to-speech, so a child never hears half a recording and half a robot. The code is `lib/audio/voice_pack.dart`.
 
-**The recording script** is `docs/voice_script.csv` (open it in Excel or Google Sheets). It has 950 rows: tuki 349, bindu 299, piku 302. Most are numbers 0 to 200 and tens to 1000, which each character says in hints. Columns:
-- `file`: the name to save the recording as, for example `tuki/0123.mp3`.
-- `speaker`: who says it.
+**The recording script** is `docs/voice_script.csv` (open it in Excel or Google Sheets). It has 744 rows: 372 for the boy voice and 372 for the girl voice. Most are numbers 0 to 200 and tens to 1000. Columns:
+- `file`: the name to save the recording as, for example `boy/0123.mp3`.
+- `speaker`: which voice: `boy` or `girl`. A boy's voice records the `boy` rows, a girl's the `girl` rows.
 - `text`: exactly what to say.
 - `kind`: `number` or `speech`.
 - `used_in`: where the game uses it.
@@ -90,17 +101,17 @@ After adding levels or changing `dialogue.json`, run `flutter test tool/voice_sc
 **With a voice artist:**
 1. Give them the CSV. One file per row, mono, MP3 or WAV, a short silence at each end, the same loudness throughout.
 2. Numbers are read on their own, in a calm, even voice, so they fit any sentence.
-3. Put the files in `assets/voice/` under the names in the `file` column (`assets/voice/tuki/0123.mp3`).
+3. Put the files in `assets/voice/` under the names in the `file` column (`assets/voice/boy/0123.mp3`).
 4. Run `python tools/voice_pack.py link`. It writes `assets/voice/clips.json` for every file it finds.
 
 **With Google's AI voices:**
 1. In Google Cloud, turn on the Text-to-Speech API and make an API key.
 2. `set GOOGLE_TTS_KEY=your-key` (Windows) or `export GOOGLE_TTS_KEY=your-key`.
-3. `python tools/voice_pack.py google`. It makes every missing clip, then links them. Choose voices at the top of the script (Google's Bangla voices are bn-IN).
+3. `python tools/voice_pack.py google`. It makes every missing clip, then links them. Choose the boy and girl voices at the top of the script (Google's Bangla voices are bn-IN).
 
 You can mix the two: record what matters most first (praise, the welcome), and let the rest fall back to text-to-speech or AI clips.
 
-**clips.json keys** are the piece's text, or `speaker|text` for one character only. The tools write `speaker|text`. A hand-written entry such as `"দারুণ!": "darun.mp3"` is used for any speaker without their own clip. Lines with `{name}` always use text-to-speech, since names cannot be recorded.
+**clips.json keys** are the piece's text, or `voice|text` for one voice only (`boy|দারুণ!`). The tools write `voice|text`. A character's voice is its `voice.group`, or its `id` when it has none. A hand-written entry such as `"দারুণ!": "darun.mp3"` is used for any speaker without their own clip. Lines with `{name}` always use text-to-speech, since names cannot be recorded.
 
 ## Sound settings
 

@@ -26,12 +26,11 @@ SCRIPT = os.path.join(ROOT, 'docs', 'voice_script.csv')
 VOICE_DIR = os.path.join(ROOT, 'assets', 'voice')
 CLIPS = os.path.join(VOICE_DIR, 'clips.json')
 
-# Google voice for each character. List them with:
+# Google voice for each voice group (trainers share the boy or girl set). List them with:
 #   https://cloud.google.com/text-to-speech/docs/voices  (Bengali, bn-IN)
 VOICES = {
-    'tuki': {'name': 'bn-IN-Wavenet-A', 'pitch': 3.0, 'rate': 0.95},
-    'bindu': {'name': 'bn-IN-Wavenet-C', 'pitch': 1.0, 'rate': 0.95},
-    'piku': {'name': 'bn-IN-Wavenet-B', 'pitch': -2.0, 'rate': 0.85},
+    'boy': {'name': 'bn-IN-Wavenet-B', 'pitch': 4.0, 'rate': 1.0},
+    'girl': {'name': 'bn-IN-Wavenet-A', 'pitch': 4.0, 'rate': 1.0},
 }
 
 
@@ -71,7 +70,7 @@ def google():
     todo = [r for r in rows() if not os.path.exists(os.path.join(VOICE_DIR, r['file']))]
     print(f'{len(todo)} clips to make.')
     for i, r in enumerate(todo, 1):
-        v = VOICES.get(r['speaker'], VOICES['tuki'])
+        v = VOICES.get(r['speaker'], VOICES['girl'])
         body = {
             'input': {'text': r['text']},
             'voice': {'languageCode': 'bn-IN', 'name': v['name']},

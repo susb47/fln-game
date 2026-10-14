@@ -5,6 +5,8 @@ import '../audio/audio_manager.dart';
 import '../bn.dart';
 import '../dashboards/child_dashboard.dart';
 import '../game_scope.dart';
+import '../widgets/avatar.dart';
+import '../widgets/trainer_picker.dart';
 import '../widgets/sound_widgets.dart';
 import 'achievements_screen.dart';
 import 'auth_screen.dart';
@@ -44,10 +46,11 @@ class _MapScreenState extends State<MapScreen> {
         leading: IconButton(
           tooltip: 'খেলোয়াড় বদলাও',
           onPressed: scope.store.signOut,
-          icon: Text(player.avatar, style: const TextStyle(fontSize: 26)),
+          icon: AvatarView(player.avatar, size: 34),
         ),
         title: Text(player.name, style: const TextStyle(fontWeight: FontWeight.bold)),
         actions: [
+          const TrainerButton(),
           const SoundButton(),
           Center(
             child: Text(
@@ -77,6 +80,7 @@ class _MapScreenState extends State<MapScreen> {
         child: Column(
           children: [
             const MissingVoiceBanner(),
+            const Padding(padding: EdgeInsets.fromLTRB(12, 8, 12, 0), child: TrainerStrip()),
             if (player.isGuest)
               Material(
                 color: const Color(0xFFFFE8A3),

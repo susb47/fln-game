@@ -65,6 +65,12 @@ class _ResultView extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                PopIn(
+                  from: const Offset(0, 0.3),
+                  duration: const Duration(milliseconds: 700),
+                  child: CharacterFigure(GameScope.of(context).coach.trainer, height: 140),
+                ),
+                const SizedBox(height: 8),
                 const CaptionBubble(),
                 const SizedBox(height: 16),
                 _StarsIn(r.stars),

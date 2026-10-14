@@ -1,4 +1,4 @@
-# Developer guide: সংখ্যার দ্বীপ (v0.4)
+# Developer guide: সংখ্যার দ্বীপ (v0.6)
 
 This guide is for anyone working on the code. For the project status, open decisions and next steps,
 see the handover document. For adding levels without touching code, see [LEVELS.md](LEVELS.md).
@@ -26,7 +26,7 @@ On an 8 GB machine, develop in Chrome and test on a real Android phone; avoid th
 ```
 cd C:\dev\fln_game          (short path, no spaces, not in OneDrive)
 flutter pub get
-flutter test                 (15 tests should pass)
+flutter test                 (28 tests should pass)
 flutter run -d chrome
 ```
 
@@ -66,12 +66,14 @@ lib/
   screens/                  auth, placement, map, island (zig-zag path), play, result, achievements
   dashboards/               child_dashboard, teacher_dashboard, dashboard_widgets (kept separate on purpose)
   widgets/                  visuals (object groups, answer buttons, stars), anim (PopIn, Shake, Pulse,
-                            CrossOut), celebration (confetti, praise card), sound_widgets, adult_gate
+                            CrossOut), celebration (confetti, praise card), sound_widgets
+                            (faces, figures, captions), trainer_picker, avatar, adult_gate
 assets/
   levels/                   one JSON file per level (files starting with _ are ignored: _template.json)
   config/                   islands.json, achievements.json, characters.json, dialogue.json
   sfx/                      sound effects (made for this project)
-  voice/                    clips.json + tuki/, bindu/, piku/ clip folders (empty: text-to-speech is used)
+  voice/                    clips.json + boy/, girl/ clip folders (empty: text-to-speech is used)
+  characters/               the nine trainers, full body; faces/ has their round faces
   brand/                    app_icon.png, company_logo.png (used in the app)
   fonts/                    Noto Sans Bengali
 docs/                       this guide, LEVELS.md, DASHBOARDS.md, VOICES.md, voice_script.csv, brand/
@@ -134,7 +136,7 @@ test/                       content, progression and app tests
 
 ## 7. Tests
 
-`flutter test` runs 22 tests (`audio_test.dart` covers the characters, dialogue, clips, mute and replay):
+`flutter test` runs 28 tests (`audio_test.dart` covers the trainers, dialogue, voice pack, mute and replay):
 - `content_test.dart`: every level file, the template, and the config files.
 - `progression_test.dart`: stars, unlocks, placement, achievements and streaks.
 - `app_test.dart`: sign-in, guest play and saving, a level play-through, and the teacher dashboard.
@@ -145,7 +147,7 @@ Screenshots in `fln_game_screens/` were made with Flutter golden tests (`--updat
 ## 8. Saved data
 
 Players are stored as JSON in `shared_preferences` under the key `profiles_v2`. Each profile holds:
-- name and picture;
+- name, picture (an emoji or `kid:<trainer id>`) and chosen trainer;
 - the levels it has opened, with stars, best score, attempts and fails per level;
 - per-island answer tallies;
 - the days it played (for streaks);

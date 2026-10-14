@@ -163,7 +163,7 @@ class _CelebrationState extends State<Celebration> with SingleTickerProviderStat
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CharacterFace(speaker, size: 96),
+                    CharacterFigure(speaker, height: 150),
                     const SizedBox(height: 8),
                     Text(
                       widget.line.text,

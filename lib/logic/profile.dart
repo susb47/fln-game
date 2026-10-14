@@ -93,6 +93,9 @@ class Profile {
   final String id;
   String name;
   String avatar;
+
+  /// Id of the trainer this player picked (a character in characters.json), or null.
+  String? trainer;
   final DateTime createdAt;
 
   /// Guests play without saving anything.
@@ -118,6 +121,7 @@ class Profile {
     required this.id,
     required this.name,
     required this.avatar,
+    this.trainer,
     required this.createdAt,
     this.isGuest = false,
     this.placementDone = false,
@@ -177,6 +181,7 @@ class Profile {
     id: id,
     name: name,
     avatar: avatar,
+    trainer: trainer,
     createdAt: createdAt,
     placementDone: placementDone,
     openedLevels: {...openedLevels},
@@ -191,6 +196,7 @@ class Profile {
     'id': id,
     'name': name,
     'avatar': avatar,
+    if (trainer != null) 'trainer': trainer,
     'createdAt': createdAt.toIso8601String(),
     'placementDone': placementDone,
     'openedLevels': openedLevels.toList(),
@@ -210,6 +216,7 @@ class Profile {
       id: j['id'] as String,
       name: j['name'] as String,
       avatar: j['avatar'] as String,
+      trainer: j['trainer'] as String?,
       createdAt: DateTime.parse(j['createdAt'] as String),
       placementDone: j['placementDone'] as bool? ?? false,
       openedLevels: ((j['openedLevels'] as List?) ?? []).cast<String>().toSet(),

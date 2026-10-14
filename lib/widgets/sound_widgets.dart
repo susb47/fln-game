@@ -5,7 +5,7 @@ import '../audio/audio_manager.dart';
 import '../data/cast.dart';
 import '../game_scope.dart';
 
-/// A character's round face.
+/// A character's round face: their picture, or their emoji when they have none.
 class CharacterFace extends StatelessWidget {
   final CharacterDef character;
   final double size;
@@ -16,20 +16,37 @@ class CharacterFace extends StatelessWidget {
     width: size,
     height: size,
     alignment: Alignment.center,
+    clipBehavior: Clip.antiAlias,
     decoration: BoxDecoration(
       shape: BoxShape.circle,
       color: Color.alphaBlend(character.color.withValues(alpha: 0.25), Colors.white),
       border: Border.all(color: character.color, width: 3),
     ),
-    child: Text(character.emoji, style: TextStyle(fontSize: size * 0.55)),
+    child: character.face != null
+        ? Image.asset(character.face!, fit: BoxFit.cover, width: size, height: size)
+        : Text(character.emoji, style: TextStyle(fontSize: size * 0.55)),
   );
+}
+
+/// A character standing, full body. Falls back to the round face.
+class CharacterFigure extends StatelessWidget {
+  final CharacterDef character;
+  final double height;
+  const CharacterFigure(this.character, {super.key, this.height = 140});
+
+  @override
+  Widget build(BuildContext context) => character.image != null
+      ? Image.asset(character.image!, height: height, fit: BoxFit.contain)
+      : CharacterFace(character, size: height * 0.7);
 }
 
 /// The speaking character with what they just said. Tap it to hear it again.
 ///
 /// With captions off, only the face and the replay button show.
 class CaptionBubble extends StatelessWidget {
-  const CaptionBubble({super.key});
+  /// Off when the speaker's picture is already shown next to the bubble.
+  final bool showFace;
+  const CaptionBubble({super.key, this.showFace = true});
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +66,7 @@ class CaptionBubble extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CharacterFace(line.speaker),
-                const SizedBox(width: 8),
+                if (showFace) ...[CharacterFace(line.speaker), const SizedBox(width: 8)],
                 if (showText)
                   Expanded(
                     child: Container(
@@ -252,9 +268,8 @@ class VoiceStatusCard extends StatelessWidget {
                     FilledButton.icon(
                       key: const ValueKey('voice_test'),
                       onPressed: () {
-                        final tuki =
-                            scope.cast.characters['tuki'] ?? scope.cast.characters.values.first;
-                        audio.say([Line(tuki, 'আমি ${tuki.name}। ${tuki.signature}')]);
+                        final t = scope.coach.trainer;
+                        audio.say([Line(t, 'আমি ${t.name}। ${t.signature}')]);
                       },
                       icon: const Icon(Icons.record_voice_over),
                       label: const Text('শুনে দেখো'),

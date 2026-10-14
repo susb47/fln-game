@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../bn.dart';
 import '../game_scope.dart';
+import '../widgets/avatar.dart';
 import '../logic/profile.dart';
 import 'dashboard_widgets.dart';
 
@@ -30,7 +31,7 @@ class ChildDashboard extends StatelessWidget {
       backgroundColor: const Color(0xFFF1F4F8),
       appBar: AppBar(
         backgroundColor: const Color(0xFFF1F4F8),
-        title: Text(forTeacher ? '${p.avatar} ${p.name}' : '📊 আমার অগ্রগতি'),
+        title: Text(forTeacher ? '${avatarText(p.avatar)}${p.name}' : '📊 আমার অগ্রগতি'),
         actions: [
           if (onDelete != null)
             IconButton(

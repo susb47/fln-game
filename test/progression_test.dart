@@ -69,7 +69,7 @@ void main() {
   });
 
   test('profiles survive saving and loading', () {
-    final p = kid();
+    final p = kid()..trainer = 'mim';
     final prog = Progression(content, p);
     final l = content.levelsOf('pattern').first;
     prog.recordAnswer('pattern', true);
@@ -79,5 +79,7 @@ void main() {
     expect(back.totalCorrect, 1);
     expect(back.sessions.single.seconds, 45);
     expect(back.achievements.keys, p.achievements.keys);
+    expect(back.trainer, 'mim');
+    expect(Profile.fromJson((p..trainer = null).toJson()).trainer, isNull);
   });
 }

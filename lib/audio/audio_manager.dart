@@ -152,7 +152,7 @@ class AudioManager extends ChangeNotifier {
   }
 
   Future<void> _speak(Line line, int turn) async {
-    final files = _sound == null ? null : pack.plan(line.speaker.id, line.text);
+    final files = _sound == null ? null : pack.plan(line.speaker.voiceKey, line.text);
     if (files != null) {
       for (final f in files) {
         if (turn != _turn) return;

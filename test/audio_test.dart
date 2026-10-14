@@ -77,20 +77,24 @@ void main() {
     expect(cast.errors, hasLength(3));
   });
 
-  test('coach picks the right speaker and fills in the hint', () async {
+  test("the player's trainer speaks, and the hint is filled in", () async {
     final voice = FakeVoice(), sound = FakeSound();
     final audio = AudioManager(settings: AudioSettings.memory(), voice: voice, sound: sound);
-    final coach = Coach(loadCast(), audio, Random(1));
+    String? picked;
+    final coach = Coach(loadCast(), audio, rng: Random(1), trainerId: () => picked);
 
     coach.wrong(q, 1);
     await Future<void>.delayed(Duration.zero);
-    expect(audio.caption!.speaker.id, 'bindu');
+    // No trainer picked yet: the first trainer in characters.json.
+    expect(audio.caption!.speaker.id, 'rafi');
     expect(audio.caption!.text, endsWith(q.hint));
     expect(sound.played, contains('sfx/wrong.wav'));
 
+    picked = 'mim';
     coach.wrong(q, 2);
     await Future<void>.delayed(Duration.zero);
-    expect(audio.caption!.speaker.id, 'piku');
+    expect(audio.caption!.speaker.id, 'mim');
+    expect(coach.questionLine(q).speaker.id, 'mim');
 
     await audio.say([coach.questionLine(q)]);
     expect(voice.said.last, '২ যোগ ৩ সমান কত?');
@@ -183,18 +187,30 @@ void main() {
     final cast = loadCast();
     final factory = PuzzleFactory(Random(5));
     final missing = <String>{};
+    // Every voice that can speak an event: all trainer voice groups, or one character.
+    Set<String> voices(String event) {
+      final s = cast.events[event]!.speaker;
+      return s == Cast.trainerSpeaker
+          ? {for (final t in cast.trainers) t.voiceKey}
+          : {cast.characters[s]!.voiceKey};
+    }
+
     for (final level in loadContent().allLevels) {
       for (var i = 0; i < 30; i++) {
         final q = factory.forLevel(level);
-        if (pack.plan('tuki', q.spoken) == null) missing.add(q.spoken);
-        for (final who in ['bindu', 'piku']) {
-          if (pack.plan(who, q.hint) == null) missing.add('$who: ${q.hint}');
+        for (final v in voices('question')) {
+          if (pack.plan(v, q.spoken) == null) missing.add('$v: ${q.spoken}');
+        }
+        for (final v in {...voices('wrong_first'), ...voices('wrong_again')}) {
+          if (pack.plan(v, q.hint) == null) missing.add('$v: ${q.hint}');
         }
       }
     }
-    for (final e in cast.events.values) {
+    for (final MapEntry(key: name, value: e) in cast.events.entries) {
       for (final l in e.lines.where((l) => !l.contains('{'))) {
-        if (pack.plan(e.speaker, l) == null) missing.add('${e.speaker}: $l');
+        for (final v in voices(name)) {
+          if (pack.plan(v, l) == null) missing.add('$v: $l');
+        }
       }
     }
     expect(missing, isEmpty, reason: 'Run: flutter test tool/voice_script_test.dart');
@@ -233,9 +249,19 @@ void main() {
     expect(await AudioManager.silent().checkVoice(), VoiceState.unavailable);
   });
 
+  test('nine trainers, each with pictures that exist and a boy or girl voice', () {
+    final trainers = loadCast().trainers;
+    expect(trainers, hasLength(9));
+    for (final t in trainers) {
+      expect(File(t.image!).existsSync(), isTrue, reason: t.image);
+      expect(File(t.face!).existsSync(), isTrue, reason: t.face);
+      expect(['boy', 'girl'], contains(t.voiceKey));
+    }
+  });
+
   test('a right answer after a mistake gets the keep-going praise', () {
     final cast = loadCast();
-    final coach = Coach(cast, AudioManager.silent(), Random(2));
+    final coach = Coach(cast, AudioManager.silent(), rng: Random(2));
     final line = coach.correct(afterRetry: true)!;
     expect(cast.events['correct_retry']!.lines, contains(line.text));
     expect(cast.events['correct']!.lines, contains(coach.correct()!.text));

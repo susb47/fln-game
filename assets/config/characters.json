@@ -1,34 +1,19 @@
 {
+  "_help": "Characters. Trainers (\"trainer\": true) are the children who guide the player: each player picks one, and that trainer says every line whose speaker in dialogue.json is \"trainer\". voice.group (boy / girl) decides which set of recorded clips a trainer uses, so one recording set serves all boys and one all girls. The animal mascots are kept for later modes (active: false).",
   "characters": [
-    {
-      "id": "tuki", "name": "টুকি", "kind": "শিয়াল", "emoji": "🦊", "color": "#F28C28", "active": true,
-      "role": "Main companion: starts levels, cheers, models trying again",
-      "voice": { "pitch": 1.25, "rate": 1.0 },
-      "signature": "চলো, দেখি কী হয়!"
-    },
-    {
-      "id": "bindu", "name": "বিন্দু", "kind": "রোবট", "emoji": "🤖", "color": "#4C9BE8", "active": true,
-      "role": "Learning companion: first hint, shows a strategy without giving the answer",
-      "voice": { "pitch": 1.0, "rate": 0.9 },
-      "signature": "একবার গুনে দেখি!"
-    },
-    {
-      "id": "piku", "name": "পিকু স্যার", "kind": "পেঁচা", "emoji": "🦉", "color": "#8D6E63", "active": true,
-      "role": "Gentle mentor: helps after a second mistake and after a hard level",
-      "voice": { "pitch": 0.85, "rate": 0.85 },
-      "signature": "ভুল থেকেও শেখা যায়!"
-    },
-    {
-      "id": "jhilimili", "name": "ঝিলিমিলি", "kind": "খরগোশ", "emoji": "🐰", "color": "#E86FA8", "active": false,
-      "role": "Later: variety and alternate strategies",
-      "voice": { "pitch": 1.4, "rate": 1.1 },
-      "signature": "আরেকটা উপায় খুঁজি!"
-    },
-    {
-      "id": "gubu", "name": "গুবু", "kind": "হাতি", "emoji": "🐘", "color": "#7E8CA3", "active": false,
-      "role": "Later: sharing, grouping and village problems",
-      "voice": { "pitch": 0.75, "rate": 0.85 },
-      "signature": "সবাই মিলে সমাধান করি!"
-    }
+    {"id": "rafi", "name": "রাফি", "kind": "ছেলে", "emoji": "🧒", "color": "#2E7D32", "active": true, "trainer": true, "image": "assets/characters/rafi.png", "face": "assets/characters/faces/rafi.png", "role": "Trainer: Calm and steady; likes counting things one by one", "voice": {"pitch": 1.2, "rate": 1.0, "group": "boy"}, "signature": "চলো, গুনে দেখি!"},
+    {"id": "mitu", "name": "মিতু", "kind": "মেয়ে", "emoji": "🧒", "color": "#E0A100", "active": true, "trainer": true, "image": "assets/characters/mitu.png", "face": "assets/characters/faces/mitu.png", "role": "Trainer: Cheerful; always encourages", "voice": {"pitch": 1.4, "rate": 1.0, "group": "girl"}, "signature": "তুমি পারবে!"},
+    {"id": "sakib", "name": "সাকিব", "kind": "ছেলে", "emoji": "🧒", "color": "#1565C0", "active": true, "trainer": true, "image": "assets/characters/sakib.png", "face": "assets/characters/faces/sakib.png", "role": "Trainer: Thinker; likes to explain how", "voice": {"pitch": 1.15, "rate": 0.95, "group": "boy"}, "signature": "ভেবে দেখি একটু!"},
+    {"id": "tisha", "name": "তিশা", "kind": "মেয়ে", "emoji": "🧒", "color": "#E0457B", "active": true, "trainer": true, "image": "assets/characters/tisha.png", "face": "assets/characters/faces/tisha.png", "role": "Trainer: Friendly and gentle", "voice": {"pitch": 1.45, "rate": 1.0, "group": "girl"}, "signature": "বাহ্‌, দারুণ খেলছ!"},
+    {"id": "arif", "name": "আরিফ", "kind": "ছেলে", "emoji": "🧒", "color": "#EF6C00", "active": true, "trainer": true, "image": "assets/characters/arif.png", "face": "assets/characters/faces/arif.png", "role": "Trainer: Energetic; loves a challenge", "voice": {"pitch": 1.25, "rate": 1.05, "group": "boy"}, "signature": "চলো, শুরু করি!"},
+    {"id": "rumi", "name": "রুমি", "kind": "মেয়ে", "emoji": "🧒", "color": "#7B1FA2", "active": true, "trainer": true, "image": "assets/characters/rumi.png", "face": "assets/characters/faces/rumi.png", "role": "Trainer: Bookish; patient with mistakes", "voice": {"pitch": 1.35, "rate": 0.95, "group": "girl"}, "signature": "ভুল থেকেও শেখা যায়!"},
+    {"id": "joy", "name": "জয়", "kind": "ছেলে", "emoji": "🧒", "color": "#C62828", "active": true, "trainer": true, "image": "assets/characters/joy.png", "face": "assets/characters/faces/joy.png", "role": "Trainer: Sporty; big cheers", "voice": {"pitch": 1.25, "rate": 1.05, "group": "boy"}, "signature": "একদম ঠিক পথে আছ!"},
+    {"id": "mim", "name": "মীম", "kind": "মেয়ে", "emoji": "🧒", "color": "#00897B", "active": true, "trainer": true, "image": "assets/characters/mim.png", "face": "assets/characters/faces/mim.png", "role": "Trainer: Curious explorer", "voice": {"pitch": 1.4, "rate": 1.0, "group": "girl"}, "signature": "একসঙ্গে খুঁজে দেখি!"},
+    {"id": "raju", "name": "রাজু", "kind": "ছেলে", "emoji": "🧒", "color": "#3E8ED0", "active": true, "trainer": true, "image": "assets/characters/raju.png", "face": "assets/characters/faces/raju.png", "role": "Trainer: Quiet and kind", "voice": {"pitch": 1.2, "rate": 0.95, "group": "boy"}, "signature": "ধীরে ধীরে ঠিক হবে!"},
+    {"id": "tuki", "name": "টুকি", "kind": "শিয়াল", "emoji": "🦊", "color": "#F28C28", "active": false, "role": "Main companion: starts levels, cheers, models trying again", "voice": {"pitch": 1.25, "rate": 1.0}, "signature": "চলো, দেখি কী হয়!"},
+    {"id": "bindu", "name": "বিন্দু", "kind": "রোবট", "emoji": "🤖", "color": "#4C9BE8", "active": false, "role": "Learning companion: first hint, shows a strategy without giving the answer", "voice": {"pitch": 1.0, "rate": 0.9}, "signature": "একবার গুনে দেখি!"},
+    {"id": "piku", "name": "পিকু স্যার", "kind": "পেঁচা", "emoji": "🦉", "color": "#8D6E63", "active": false, "role": "Gentle mentor: helps after a second mistake and after a hard level", "voice": {"pitch": 0.85, "rate": 0.85}, "signature": "ভুল থেকেও শেখা যায়!"},
+    {"id": "jhilimili", "name": "ঝিলিমিলি", "kind": "খরগোশ", "emoji": "🐰", "color": "#E86FA8", "active": false, "role": "Later: variety and alternate strategies", "voice": {"pitch": 1.4, "rate": 1.1}, "signature": "আরেকটা উপায় খুঁজি!"},
+    {"id": "gubu", "name": "গুবু", "kind": "হাতি", "emoji": "🐘", "color": "#7E8CA3", "active": false, "role": "Later: sharing, grouping and village problems", "voice": {"pitch": 0.75, "rate": 0.85}, "signature": "সবাই মিলে সমাধান করি!"}
   ]
 }

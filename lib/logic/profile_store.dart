@@ -37,11 +37,12 @@ class ProfileStore extends ChangeNotifier {
     return ProfileStore._(prefs, profiles);
   }
 
-  Profile create(String name, String avatar) {
+  Profile create(String name, String avatar, {String? trainer}) {
     final p = Profile(
       id: DateTime.now().microsecondsSinceEpoch.toString(),
       name: name.trim(),
       avatar: avatar,
+      trainer: trainer,
       createdAt: DateTime.now(),
     );
     profiles.add(p);
@@ -61,17 +62,29 @@ class ProfileStore extends ChangeNotifier {
   }
 
   /// Keeps the guest's progress by turning it into a saved profile.
-  Profile saveGuest(String name, String avatar) {
+  Profile saveGuest(String name, String avatar, {String? trainer}) {
     final guest = current!;
     final p = guest.savedAs(
       id: DateTime.now().microsecondsSinceEpoch.toString(),
       name: name.trim(),
       avatar: avatar,
-    );
+    )..trainer = trainer ?? guest.trainer;
     profiles.add(p);
     current = p;
     save();
     return p;
+  }
+
+  /// Changes the current player's trainer.
+  void setTrainer(String id) {
+    final p = current;
+    if (p == null) return;
+    p.trainer = id;
+    if (p.isGuest) {
+      notifyListeners();
+    } else {
+      save();
+    }
   }
 
   void signOut() {
